@@ -1,0 +1,76 @@
+{
+  "experiment": "EXP-007",
+  "description": "Corrected sensitivity response and recovery analysis",
+  "method_note": "Recovery is defined as the first negative dVdt after the scenario-specific disturbance end.",
+  "scenarios": {
+    "low": {
+      "samples": 200,
+      "disturbance_start": 1.0,
+      "disturbance_end": 1.2,
+      "maximum_V": {
+        "value": 200.5,
+        "t": 1.0
+      },
+      "minimum_V": {
+        "value": 50.5,
+        "t": 0.0
+      },
+      "maximum_dVdt": {
+        "value": 14999.999999999987,
+        "t": 1.0
+      },
+      "first_high": 1.0,
+      "first_drop": 1.0,
+      "recovery_start": 1.21,
+      "detection_delay": 0.0,
+      "response_delay": 0.0,
+      "recovery_delay": 0.010000000000000009
+    },
+    "medium": {
+      "samples": 200,
+      "disturbance_start": 1.0,
+      "disturbance_end": 1.4,
+      "maximum_V": {
+        "value": 800.5,
+        "t": 1.0
+      },
+      "minimum_V": {
+        "value": 50.5,
+        "t": 0.0
+      },
+      "maximum_dVdt": {
+        "value": 74999.99999999993,
+        "t": 1.0
+      },
+      "first_high": 1.0,
+      "first_drop": null,
+      "recovery_start": 1.4000000000000001,
+      "detection_delay": 0.0,
+      "response_delay": null,
+      "recovery_delay": 2.220446049250313e-16
+    },
+    "high": {
+      "samples": 200,
+      "disturbance_start": 1.0,
+      "disturbance_end": 1.6,
+      "maximum_V": {
+        "value": 2450.5,
+        "t": 1.0
+      },
+      "minimum_V": {
+        "value": 50.5,
+        "t": 0.0
+      },
+      "maximum_dVdt": {
+        "value": 239999.9999999998,
+        "t": 1.0
+      },
+      "first_high": 1.0,
+      "first_drop": null,
+      "recovery_start": 1.61,
+      "detection_delay": 0.0,
+      "response_delay": null,
+      "recovery_delay": 0.010000000000000009
+    }
+  }
+}

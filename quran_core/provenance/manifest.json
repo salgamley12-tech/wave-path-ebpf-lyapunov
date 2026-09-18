@@ -1,0 +1,8 @@
+{
+  "project": "Wave Path 2.0 x Quran-Core",
+  "quran_reference": "Quran 41:53",
+  "layer_type": "normative_reference_and_methodological_framing",
+  "equation_derivation_claim": false,
+  "first_test": "observation_to_discernment",
+  "model_status": "reference implementation"
+}

@@ -1,0 +1,12 @@
+rule_id: qc-41-53-observation-v1
+input: textual_relation(observation_to_discernment)
+output: observation_and_evidence_schema
+steps:
+  - define_observable_domain
+  - define_observation_operator
+  - collect_measurements
+  - define_hypothesis_before_test
+  - compare_prediction_with_observation
+  - record_uncertainty
+anti_hindsight: true
+falsifiable: true

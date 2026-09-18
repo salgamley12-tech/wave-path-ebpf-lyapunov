@@ -1,0 +1,21 @@
+{
+  "experiment": "EXP-008",
+  "description": "Consistency validation of EXP-006 and EXP-007 sensitivity results",
+  "checks": {
+    "csv_exists": true,
+    "json_exists": true,
+    "total_samples": true,
+    "three_scenarios": true,
+    "200_samples_each": true,
+    "finite_numeric_values": true,
+    "V_monotonic_with_severity": true,
+    "dVdt_monotonic_with_severity": true,
+    "low_max_V": true,
+    "medium_max_V": true,
+    "high_max_V": true,
+    "low_max_dVdt": true,
+    "medium_max_dVdt": true,
+    "high_max_dVdt": true
+  },
+  "validation_passed": true
+}

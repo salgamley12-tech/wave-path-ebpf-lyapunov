@@ -1,0 +1,42 @@
+{
+  "experiment": "EXP-005",
+  "validation_passed": true,
+  "expected": {
+    "samples": 200,
+    "initial_V": 505000.0,
+    "final_V": 63419.005,
+    "unauthorized_events": 51,
+    "risk_counts": {
+      "low": 147,
+      "high": 53
+    },
+    "action_counts": {
+      "pass": 147,
+      "observe_only": 51,
+      "drop": 2
+    }
+  },
+  "actual": {
+    "samples": 200,
+    "initial_V": 505000.0,
+    "final_V": 63419.005,
+    "unauthorized_events": 51,
+    "risk_counts": {
+      "low": 147,
+      "high": 53
+    },
+    "action_counts": {
+      "pass": 147,
+      "observe_only": 51,
+      "drop": 2
+    }
+  },
+  "checks": {
+    "samples": true,
+    "initial_V": true,
+    "final_V": true,
+    "unauthorized_events": true,
+    "risk_counts": true,
+    "action_counts": true
+  }
+}
