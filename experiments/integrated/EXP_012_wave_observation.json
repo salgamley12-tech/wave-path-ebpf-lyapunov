@@ -1,0 +1,39 @@
+{
+  "experiment": "EXP-012",
+  "description": "Integration validation of the actual wave model, observation layer, Lyapunov calculation, and Wave Path trajectory.",
+  "configuration": {
+    "seconds": 2.0,
+    "dt": 0.001,
+    "omega": 6.283185307179586,
+    "damping": 0.35,
+    "u0": 1.0,
+    "v0": 0.0
+  },
+  "samples": 2001,
+  "observation": {
+    "sigma": 0.0,
+    "seed": 7,
+    "rmse": 0.0,
+    "max_abs_noise": 0.0
+  },
+  "lyapunov": {
+    "initial_V": 19.739208802178716,
+    "final_V": 4.856389916632241,
+    "minimum_V": 4.856389916632241,
+    "maximum_V": 19.739208802178716,
+    "maximum_V_model_difference": 0.0
+  },
+  "wave_path": {
+    "points": 2001,
+    "displacement": 0.5069535801926761,
+    "monotonic_time": true
+  },
+  "validation": {
+    "sample_count_correct": true,
+    "observation_rmse_zero": true,
+    "noise_zero": true,
+    "wave_path_points_correct": true,
+    "finite_values": true,
+    "validation_passed": true
+  }
+}

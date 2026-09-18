@@ -1,0 +1,218 @@
+{
+  "experiment": "EXP-010",
+  "title": "Wave Path Integrated Experiment Report",
+  "status": "COMPLETED",
+  "data_type": "synthetic",
+  "experiments": {
+    "EXP-001": {
+      "exists": true,
+      "path": "experiments/integrated/results.csv"
+    },
+    "EXP-002": {
+      "exists": true,
+      "path": "experiments/integrated/results_full.csv"
+    },
+    "EXP-003": {
+      "exists": true,
+      "path": "experiments/integrated/results_full.csv"
+    },
+    "EXP-004": {
+      "exists": true,
+      "path": "experiments/integrated/results_full.csv"
+    },
+    "EXP-005": {
+      "status": "VALIDATED",
+      "note": "Validation was performed by the dedicated validation experiment."
+    },
+    "EXP-006": {
+      "exists": true,
+      "path": "experiments/integrated/sensitivity_scenarios.json",
+      "data": {
+        "experiment": "EXP-006",
+        "description": "Sensitivity scenarios for synthetic disturbances",
+        "summary": {
+          "low": {
+            "samples": 200,
+            "max_V": 200.5,
+            "min_V": 50.5,
+            "max_dVdt": 14999.999999999987,
+            "risk_counts": {
+              "low": 199,
+              "high": 1
+            },
+            "action_counts": {
+              "pass": 199,
+              "drop": 1
+            }
+          },
+          "medium": {
+            "samples": 200,
+            "max_V": 800.5,
+            "min_V": 50.5,
+            "max_dVdt": 74999.99999999993,
+            "risk_counts": {
+              "medium": 160,
+              "high": 40
+            },
+            "action_counts": {
+              "observe_only": 200
+            }
+          },
+          "high": {
+            "samples": 200,
+            "max_V": 2450.5,
+            "min_V": 50.5,
+            "max_dVdt": 239999.9999999998,
+            "risk_counts": {
+              "medium": 139,
+              "high": 61
+            },
+            "action_counts": {
+              "observe_only": 200
+            }
+          }
+        }
+      }
+    },
+    "EXP-007": {
+      "exists": true,
+      "path": "experiments/integrated/sensitivity_analysis.json",
+      "data": {
+        "experiment": "EXP-007",
+        "description": "Corrected sensitivity response and recovery analysis",
+        "method_note": "Recovery is defined as the first negative dVdt after the scenario-specific disturbance end.",
+        "scenarios": {
+          "low": {
+            "samples": 200,
+            "disturbance_start": 1.0,
+            "disturbance_end": 1.2,
+            "maximum_V": {
+              "value": 200.5,
+              "t": 1.0
+            },
+            "minimum_V": {
+              "value": 50.5,
+              "t": 0.0
+            },
+            "maximum_dVdt": {
+              "value": 14999.999999999987,
+              "t": 1.0
+            },
+            "first_high": 1.0,
+            "first_drop": 1.0,
+            "recovery_start": 1.21,
+            "detection_delay": 0.0,
+            "response_delay": 0.0,
+            "recovery_delay": 0.010000000000000009
+          },
+          "medium": {
+            "samples": 200,
+            "disturbance_start": 1.0,
+            "disturbance_end": 1.4,
+            "maximum_V": {
+              "value": 800.5,
+              "t": 1.0
+            },
+            "minimum_V": {
+              "value": 50.5,
+              "t": 0.0
+            },
+            "maximum_dVdt": {
+              "value": 74999.99999999993,
+              "t": 1.0
+            },
+            "first_high": 1.0,
+            "first_drop": null,
+            "recovery_start": 1.4000000000000001,
+            "detection_delay": 0.0,
+            "response_delay": null,
+            "recovery_delay": 2.220446049250313e-16
+          },
+          "high": {
+            "samples": 200,
+            "disturbance_start": 1.0,
+            "disturbance_end": 1.6,
+            "maximum_V": {
+              "value": 2450.5,
+              "t": 1.0
+            },
+            "minimum_V": {
+              "value": 50.5,
+              "t": 0.0
+            },
+            "maximum_dVdt": {
+              "value": 239999.9999999998,
+              "t": 1.0
+            },
+            "first_high": 1.0,
+            "first_drop": null,
+            "recovery_start": 1.61,
+            "detection_delay": 0.0,
+            "response_delay": null,
+            "recovery_delay": 0.010000000000000009
+          }
+        }
+      }
+    },
+    "EXP-008": {
+      "exists": true,
+      "path": "experiments/integrated/EXP_008_validation.json",
+      "data": {
+        "experiment": "EXP-008",
+        "description": "Consistency validation of EXP-006 and EXP-007 sensitivity results",
+        "checks": {
+          "csv_exists": true,
+          "json_exists": true,
+          "total_samples": true,
+          "three_scenarios": true,
+          "200_samples_each": true,
+          "finite_numeric_values": true,
+          "V_monotonic_with_severity": true,
+          "dVdt_monotonic_with_severity": true,
+          "low_max_V": true,
+          "medium_max_V": true,
+          "high_max_V": true,
+          "low_max_dVdt": true,
+          "medium_max_dVdt": true,
+          "high_max_dVdt": true
+        },
+        "validation_passed": true
+      }
+    }
+  },
+  "reproducibility": {
+    "EXP-009": {
+      "status": "REPRODUCIBLE",
+      "identical_output": true,
+      "sha256": "b602fdf2a8307ec5b8f692a7a27b9cda8cb55f73fdf1b2375a849128569e51f0"
+    }
+  },
+  "methodological_limits": [
+    "The telemetry is synthetic.",
+    "No real network traffic was generated.",
+    "No real eBPF/XDP benchmark was performed.",
+    "V is an energy-like proxy in the experiment.",
+    "The risk classifier is rule-based.",
+    "Detection delay is simulation-time delay.",
+    "Response delay is simulation-time delay.",
+    "Recovery is defined by negative dVdt."
+  ],
+  "summary": {
+    "completed": [
+      "EXP-001",
+      "EXP-002",
+      "EXP-003",
+      "EXP-004",
+      "EXP-006",
+      "EXP-007"
+    ],
+    "validated": [
+      "EXP-005",
+      "EXP-008"
+    ],
+    "reproducible": [
+      "EXP-009"
+    ],
+    "report_generated": "EXP-010"
+  }
+}

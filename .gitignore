@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+lyapunov_engine
+experiments/wave/*.csv
+experiments/wave/*.json
