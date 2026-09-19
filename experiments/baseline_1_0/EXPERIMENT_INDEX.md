@@ -177,3 +177,34 @@ Methodological boundary:
 EXP-017 validates the existence of an implementation-level decision
 boundary difference. It does not establish which classifier is
 universally preferable. No production classifier was modified.
+
+## EXP-018
+
+Title:
+Risk Input Boundary Comparison
+
+Status:
+COMPLETED
+
+Definition:
+Comparison of the legacy and current risk paths using identical
+Lyapunov values and controlled anomaly_score values.
+
+Cases:
+4
+
+Main observation:
+The legacy classifier incorporates anomaly_score, while the current
+Lyapunov risk assessment does not accept anomaly_score as an independent
+input.
+
+Changing anomaly_score while keeping V and dVdt constant changed the
+legacy classification but did not change the current classification.
+
+Raw results:
+EXP_018_risk_input_boundary/EXP_018_results.txt
+
+Methodological boundary:
+EXP-018 validates an implementation-level input boundary.
+It does not establish which risk model is universally preferable.
+No production classifier was modified.
