@@ -12,6 +12,7 @@ from model.wave.lyapunov_bridge import wave_rows_to_lyapunov
 from model.risk.lyapunov_risk import assess_lyapunov_risk
 from policy.risk_policy import decide_from_risk
 from controller.policy_controller import control_from_policy
+from model.feedback.controller_feedback import create_feedback
 
 
 def test_end_to_end_trace():
@@ -53,6 +54,11 @@ def test_end_to_end_trace():
 
     policy = decide_from_risk(risk.risk_level)
     controller = control_from_policy(policy.action)
+    feedback = create_feedback(
+        controller.action,
+        controller.mode,
+        state_updated=False,
+    )
 
     assert mapping["id"] == "QRF-001"
     assert len(observations) == 3
@@ -62,3 +68,6 @@ def test_end_to_end_trace():
     assert risk.risk_level == "LOW"
     assert policy.action == "MONITOR"
     assert controller.mode == "OBSERVE"
+    assert feedback.previous_action == "MONITOR"
+    assert feedback.observed_mode == "OBSERVE"
+    assert feedback.state_updated is False
