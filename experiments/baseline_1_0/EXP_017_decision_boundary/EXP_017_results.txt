@@ -1,0 +1,26 @@
+EXP-017 — Decision Boundary Comparison
+
+Objective: Compare legacy and current risk assessment using identical inputs.
+
+Cases: 5
+NEGATIVE: old=low new=LOW match=True
+ZERO: old=low new=LOW match=True
+SMALL_POS: old=high new=MEDIUM match=False
+LARGE_POS: old=high new=HIGH match=True
+ANOMALY: old=high new=LOW match=False
+
+Matches: 3
+Mismatches: 2
+Status: DIFFERENCE_DETECTED
+
+Key observations:
+1. The legacy classifier treats any positive dVdt as HIGH risk.
+2. The current Lyapunov classifier distinguishes MEDIUM and HIGH according to dVdt/V.
+3. The legacy classifier incorporates anomaly_score.
+4. The current Lyapunov classifier does not currently incorporate anomaly_score.
+5. Therefore the two classifiers are not semantically equivalent.
+
+Boundary:
+EXP-017 validates the existence of a decision-boundary difference.
+It does not establish which classifier is universally preferable.
+No production classifier was modified by this experiment.

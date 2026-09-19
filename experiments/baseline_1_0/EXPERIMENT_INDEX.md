@@ -138,3 +138,42 @@ Methodological boundary:
 This validates the behavior of the current implementation only.
 Future feedback behavior requires an explicit and measurable state
 update rule.
+
+## EXP-017
+
+Title:
+Decision Boundary Comparison
+
+Status:
+COMPLETED
+
+Definition:
+Decision-boundary comparison between the legacy risk classifier and
+the current Lyapunov risk assessment using identical inputs.
+
+Cases:
+5
+
+Matches:
+3
+
+Mismatches:
+2
+
+Raw results:
+EXP_017_decision_boundary/EXP_017_results.txt
+
+Main observation:
+The legacy and current risk classifiers are not semantically equivalent.
+
+The legacy classifier treats any positive dVdt as HIGH and incorporates
+anomaly_score.
+
+The current Lyapunov classifier distinguishes MEDIUM and HIGH according
+to the implemented dVdt/V boundary and does not currently incorporate
+anomaly_score.
+
+Methodological boundary:
+EXP-017 validates the existence of an implementation-level decision
+boundary difference. It does not establish which classifier is
+universally preferable. No production classifier was modified.
