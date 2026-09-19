@@ -49,3 +49,24 @@ scientific, or real-world risk standard.
 ## Status
 
 PLANNED
+
+## Result
+
+Status: COMPLETED
+
+Observed classification:
+
+| Case | V | dV/dt | Stable | Risk |
+|---|---:|---:|---|---|
+| A_STABLE | 1.0 | -0.10 | True | LOW |
+| B_ZERO_DERIVATIVE | 1.0 | 0.00 | True | LOW |
+| C_POSITIVE_DEVIATION | 1.0 | 0.02 | False | MEDIUM |
+| D_HIGH_POSITIVE_DEVIATION | 1.0 | 0.10 | False | HIGH |
+
+## Interpretation
+
+The experiment confirms the implemented classification behavior at the
+tested values.
+
+The thresholds are properties of the current implementation and are not
+claimed as universal risk thresholds.
