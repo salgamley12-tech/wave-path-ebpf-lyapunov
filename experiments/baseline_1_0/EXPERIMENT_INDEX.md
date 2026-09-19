@@ -113,3 +113,28 @@ the existing State without modification.
 Methodological boundary:
 This validates the implemented software behavior only. It does not
 establish a universal feedback-control law.
+## EXP-016
+
+Title:
+Feedback Update Boundary
+
+Status:
+COMPLETED
+
+Definition commit:
+b13ddf2
+
+Completion commit:
+33ad158
+
+Raw results:
+EXP_016_results.txt
+
+Main observation:
+The current implementation preserves all State field values for both
+state_updated=false and state_updated=true.
+
+Methodological boundary:
+This validates the behavior of the current implementation only.
+Future feedback behavior requires an explicit and measurable state
+update rule.
