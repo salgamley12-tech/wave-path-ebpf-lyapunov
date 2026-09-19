@@ -1,0 +1,28 @@
+EXP-018 — Risk Input Boundary Comparison
+
+Objective:
+Determine whether anomaly_score independently affects the legacy
+and current risk assessment paths under identical V and dVdt inputs.
+
+Cases:
+LOW_ANOMALY: legacy=low current=LOW anomaly_score=0.1
+HIGH_ANOMALY: legacy=high current=LOW anomaly_score=0.9
+POSITIVE_DVDT_LOW_ANOMALY: legacy=high current=MEDIUM anomaly_score=0.1
+POSITIVE_DVDT_HIGH_ANOMALY: legacy=high current=MEDIUM anomaly_score=0.9
+
+Observation:
+The legacy classifier incorporates anomaly_score.
+The current Lyapunov risk assessment does not accept anomaly_score
+as an independent input.
+
+Changing anomaly_score from 0.1 to 0.9 while keeping V and dVdt
+constant changed the legacy classification but did not change the
+current Lyapunov classification.
+
+Status:
+COMPLETED
+
+Methodological boundary:
+EXP-018 validates an implementation-level input boundary.
+It does not establish which risk model is universally preferable.
+No production classifier was modified.
