@@ -50,3 +50,31 @@ or superiority of one state over another.
 ## Status
 
 PLANNED
+
+## Result
+
+Status: COMPLETED
+
+The controlled change propagated through the Wave and Lyapunov layers.
+
+Observed final values:
+
+- Baseline V: 0.16714412656488375
+- Changed V: 0.14857479215741945
+- Delta V: -0.018569334407464305
+- Baseline dV/dt: -0.16813397438264488
+- Changed dV/dt: -0.14246816895463477
+- Risk: LOW → LOW
+- Policy: MONITOR → MONITOR
+- Controller: OBSERVE → OBSERVE
+
+## Conclusion Boundary
+
+EXP-013 demonstrates reproducible propagation of a controlled state change
+through the existing computational pipeline.
+
+It does not establish causal improvement in stability.
+
+Raw results are stored in:
+
+experiments/baseline_1_0/EXP_013_results.txt
