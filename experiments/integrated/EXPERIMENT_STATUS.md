@@ -673,7 +673,58 @@ It does not establish:
 
 ---
 
-# 21. Updated Final Status
+# 21. EXP-013 — Controlled Observation Noise
+
+Experiment:
+Controlled observation-noise integration using the actual wave model,
+observation layer, Lyapunov calculation, and Wave Path trajectory.
+
+Configuration:
+Simulation time:  2.0 s
+dt:               0.001 s
+sigma:            0.01
+seed:             7
+Samples:          2001
+
+Results:
+Observation RMSE:           0.010126179713664026
+Maximum absolute noise:     0.03444705105326818
+Initial V:                  19.638320555259053
+Final V:                    4.759952605748658
+Minimum V:                  4.3793514684534065
+Maximum V:                  20.385783783522392
+Maximum V model difference: 0.9140689456240736
+
+Wave Path points:           2001
+Path displacement:           0.5093315072746865
+Monotonic time:              true
+
+Validation:
+sample_count_correct       true
+noise_present               true
+rmse_positive               true
+wave_path_points_correct    true
+finite_values               true
+validation_passed           true
+
+Reproducibility:
+Repeated execution with seed=7 produced identical results.
+
+Status:
+EXP-013 = VALIDATED / REPRODUCIBLE
+
+Methodological Note:
+EXP-013 validates controlled observation-noise integration under the
+configured deterministic seed and simulation conditions. It does not
+establish real-world measurement performance, real eBPF/XDP latency,
+or formal Lyapunov stability.
+
+Artifacts:
+experiments/integrated/EXP_013_controlled_observation_noise.py
+experiments/integrated/EXP_013_controlled_observation_noise.csv
+experiments/integrated/EXP_013_controlled_observation_noise.json
+
+---
 
 EXP-001   COMPLETED
 EXP-002   COMPLETED
@@ -689,16 +740,14 @@ EXP-009   REPRODUCIBLE
 EXP-010   REPORT COMPLETED
 EXP-011   INTEGRITY VALIDATED
 EXP-012   INTEGRATION VALIDATED
+EXP-013   VALIDATED / REPRODUCIBLE
 
 Overall Status:
-
 WAVE PATH 2.0
 INTEGRATED EXPERIMENTAL LAYER
 STATUS = VALIDATED / REPRODUCIBLE / INTEGRATED
 
 Next Experimental Phase:
-Controlled observation-noise experiment
-        ↓
 Robustness analysis
         ↓
 Interface validation
