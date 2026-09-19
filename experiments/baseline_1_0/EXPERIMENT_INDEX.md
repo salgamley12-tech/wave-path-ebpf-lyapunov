@@ -65,3 +65,51 @@ pipeline.
 
 They do not establish universal scientific laws or causal conclusions
 beyond the tested model and conditions.
+## EXP-015
+
+Title:
+Feedback State Loop
+
+Status:
+COMPLETED
+
+Definition commit:
+2dff0f6
+
+Completion commit:
+16ca0ec
+
+Raw results:
+EXP_015_results.txt
+
+Main observation:
+When state_updated is false, the implemented feedback layer preserves
+the existing State without modification.
+
+Methodological boundary:
+This validates the implemented software behavior only. It does not
+establish a universal feedback-control law.
+## EXP-015
+
+Title:
+Feedback State Loop
+
+Status:
+COMPLETED
+
+Definition commit:
+2dff0f6
+
+Completion commit:
+16ca0ec
+
+Raw results:
+EXP_015_results.txt
+
+Main observation:
+When state_updated is false, the implemented feedback layer preserves
+the existing State without modification.
+
+Methodological boundary:
+This validates the implemented software behavior only. It does not
+establish a universal feedback-control law.
