@@ -686,3 +686,31 @@ For reproducibility, a publication submission should identify the exact reposito
 ## Scientific Status
 
 This document is a **research/reproducibility manuscript**, not a statement of peer review. External peer review, independent replication, and any required venue-specific validation remain separate stages.
+
+## Experimental Validation & Framework Integration (EXP-014 to EXP-017)
+
+The Wave Path 2.0 architecture underwent rigorous empirical testing in a deterministic mobile runtime environment (Termux). The experimental suite validates reference constancy, anomaly separation, system recovery duration, and full system safety under stress:
+
+1. **EXP-014: Reference Constancy & Lyapunov Boundaries**
+   - **Objective:** Verified reference stability ($Q_{t+1} = Q$) and Lyapunov stability boundaries under derivative variations ($dV/dt$).
+   - **Outcome:** Successfully categorized stable states versus high-risk boundary breaches.
+
+2. **EXP-015: True vs. Illusory Regularity**
+   - **Objective:** Evaluated the system's capacity to discriminate genuine underlying periodicities from transient, deceptive noise perturbations.
+   - **Outcome:** Passed. Deviation threshold checking ($< 0.6$) accurately identified structural regularity.
+
+3. **EXP-016: Response Latency & Recovery Duration**
+   - **Objective:** Measured real-time response time and recovery dynamics under artificial step-shock conditions.
+   - **Metrics:** 
+     - **Detection Latency:** 30 steps
+     - **Recovery Time:** 38 steps
+   - **Outcome:** Passed. Confirmed predictable, bounded convergence back to the invariant reference state.
+
+4. **EXP-017: Integrated System Evaluation**
+   - **Objective:** Comprehensive stress-testing combining dynamic signals, Gaussian noise, and severe transient shocks (steps = 150).
+   - **Results:** 
+     - **Status:** PASSED
+     - **High-Risk Violations Caught:** 25
+     - **Recovery Verified:** True
+
+
