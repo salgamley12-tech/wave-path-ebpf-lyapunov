@@ -1,0 +1,507 @@
+{
+    "experiment_id": "EXP_016_recovery_test",
+    "detection_latency": 30,
+    "recovery_time": 38,
+    "data": [
+        {
+            "step": 0,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 1,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 2,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 3,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 4,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 5,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 6,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 7,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 8,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 9,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 10,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 11,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 12,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 13,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 14,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 15,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 16,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 17,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 18,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 19,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 20,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 21,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 22,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 23,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 24,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 25,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 26,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 27,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 28,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 29,
+            "signal_value": 1.0,
+            "deviation": 0.0
+        },
+        {
+            "step": 30,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 31,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 32,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 33,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 34,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 35,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 36,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 37,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 38,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 39,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 40,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 41,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 42,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 43,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 44,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 45,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 46,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 47,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 48,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 49,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 50,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 51,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 52,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 53,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 54,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 55,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 56,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 57,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 58,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 59,
+            "signal_value": 1.8,
+            "deviation": 0.8
+        },
+        {
+            "step": 60,
+            "signal_value": 1.72,
+            "deviation": 0.72
+        },
+        {
+            "step": 61,
+            "signal_value": 1.64,
+            "deviation": 0.6399999999999999
+        },
+        {
+            "step": 62,
+            "signal_value": 1.5599999999999998,
+            "deviation": 0.5599999999999998
+        },
+        {
+            "step": 63,
+            "signal_value": 1.4799999999999998,
+            "deviation": 0.47999999999999976
+        },
+        {
+            "step": 64,
+            "signal_value": 1.3999999999999997,
+            "deviation": 0.3999999999999997
+        },
+        {
+            "step": 65,
+            "signal_value": 1.3199999999999996,
+            "deviation": 0.3199999999999996
+        },
+        {
+            "step": 66,
+            "signal_value": 1.2399999999999995,
+            "deviation": 0.23999999999999955
+        },
+        {
+            "step": 67,
+            "signal_value": 1.1599999999999995,
+            "deviation": 0.15999999999999948
+        },
+        {
+            "step": 68,
+            "signal_value": 1.0799999999999994,
+            "deviation": 0.0799999999999994
+        },
+        {
+            "step": 69,
+            "signal_value": 0.9999999999999994,
+            "deviation": 5.551115123125783e-16
+        },
+        {
+            "step": 70,
+            "signal_value": 0.9199999999999995,
+            "deviation": 0.08000000000000052
+        },
+        {
+            "step": 71,
+            "signal_value": 0.8399999999999995,
+            "deviation": 0.16000000000000048
+        },
+        {
+            "step": 72,
+            "signal_value": 0.7599999999999996,
+            "deviation": 0.24000000000000044
+        },
+        {
+            "step": 73,
+            "signal_value": 0.6799999999999996,
+            "deviation": 0.3200000000000004
+        },
+        {
+            "step": 74,
+            "signal_value": 0.5999999999999996,
+            "deviation": 0.40000000000000036
+        },
+        {
+            "step": 75,
+            "signal_value": 0.5199999999999997,
+            "deviation": 0.4800000000000003
+        },
+        {
+            "step": 76,
+            "signal_value": 0.43999999999999967,
+            "deviation": 0.5600000000000003
+        },
+        {
+            "step": 77,
+            "signal_value": 0.35999999999999965,
+            "deviation": 0.6400000000000003
+        },
+        {
+            "step": 78,
+            "signal_value": 0.27999999999999964,
+            "deviation": 0.7200000000000004
+        },
+        {
+            "step": 79,
+            "signal_value": 0.19999999999999962,
+            "deviation": 0.8000000000000004
+        },
+        {
+            "step": 80,
+            "signal_value": 0.11999999999999962,
+            "deviation": 0.8800000000000003
+        },
+        {
+            "step": 81,
+            "signal_value": 0.03999999999999962,
+            "deviation": 0.9600000000000004
+        },
+        {
+            "step": 82,
+            "signal_value": -0.04000000000000038,
+            "deviation": 1.0400000000000005
+        },
+        {
+            "step": 83,
+            "signal_value": -0.12000000000000038,
+            "deviation": 1.1200000000000003
+        },
+        {
+            "step": 84,
+            "signal_value": -0.2000000000000004,
+            "deviation": 1.2000000000000004
+        },
+        {
+            "step": 85,
+            "signal_value": -0.2800000000000004,
+            "deviation": 1.2800000000000005
+        },
+        {
+            "step": 86,
+            "signal_value": -0.36000000000000043,
+            "deviation": 1.3600000000000003
+        },
+        {
+            "step": 87,
+            "signal_value": -0.44000000000000045,
+            "deviation": 1.4400000000000004
+        },
+        {
+            "step": 88,
+            "signal_value": -0.5200000000000005,
+            "deviation": 1.5200000000000005
+        },
+        {
+            "step": 89,
+            "signal_value": -0.6000000000000004,
+            "deviation": 1.6000000000000005
+        },
+        {
+            "step": 90,
+            "signal_value": -0.6800000000000004,
+            "deviation": 1.6800000000000004
+        },
+        {
+            "step": 91,
+            "signal_value": -0.7600000000000003,
+            "deviation": 1.7600000000000002
+        },
+        {
+            "step": 92,
+            "signal_value": -0.8400000000000003,
+            "deviation": 1.8400000000000003
+        },
+        {
+            "step": 93,
+            "signal_value": -0.9200000000000003,
+            "deviation": 1.9200000000000004
+        },
+        {
+            "step": 94,
+            "signal_value": -1.0000000000000002,
+            "deviation": 2.0
+        },
+        {
+            "step": 95,
+            "signal_value": -1.0800000000000003,
+            "deviation": 2.08
+        },
+        {
+            "step": 96,
+            "signal_value": -1.1600000000000004,
+            "deviation": 2.16
+        },
+        {
+            "step": 97,
+            "signal_value": -1.2400000000000004,
+            "deviation": 2.24
+        },
+        {
+            "step": 98,
+            "signal_value": -1.3200000000000005,
+            "deviation": 2.3200000000000003
+        },
+        {
+            "step": 99,
+            "signal_value": -1.4000000000000006,
+            "deviation": 2.4000000000000004
+        }
+    ]
+}
