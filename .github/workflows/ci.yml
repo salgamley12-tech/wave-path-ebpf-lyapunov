@@ -1,0 +1,29 @@
+name: Wave Path CI Pipeline
+
+on:
+  push:
+    branches: [ wave-path-2-integration, main ]
+  pull_request:
+    branches: [ wave-path-2-integration, main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install numpy
+
+      - name: Run Integrated Evaluation (EXP-017)
+        run: |
+          python EXP_017_integrated_eval.py
+          
