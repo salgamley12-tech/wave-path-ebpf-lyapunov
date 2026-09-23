@@ -1,9 +1,3 @@
-[package]
-name = "wave-path-kernel"
-version = "0.1.0"
-edition = "2021"
-authors = ["Sultan Ali Al-Gamley <salgamley12-tech>"]
-description = "Sovereign Kernel Architecture (AQI) - Lyapunov Stability & Deterministic Enforcement"
-
-[dependencies]
-# تم تخصيص هذا الملف لإدارة إعدادات النواة السيادية وبيئة التشغيل الحتمية
+[workspace]
+members = ["state", "controller_rs"]
+resolver = "2"

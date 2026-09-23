@@ -1,0 +1,18 @@
+EXP-013
+state0_connection_rate: 0.98
+state1_connection_rate: 0.9
+state_change: -0.07999999999999996
+
+baseline_initial_V: 0.6775920880217872
+changed_initial_V: 0.6023920880217872
+baseline_final_V: 0.16714412656488375
+changed_final_V: 0.14857479215741945
+baseline_final_dVdt: -0.16813397438264488
+changed_final_dVdt: -0.14246816895463477
+baseline_risk: LOW
+changed_risk: LOW
+baseline_policy: MONITOR
+changed_policy: MONITOR
+baseline_controller: OBSERVE
+changed_controller: OBSERVE
+delta_final_V: -0.018569334407464305

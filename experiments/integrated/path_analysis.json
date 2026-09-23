@@ -1,0 +1,46 @@
+{
+  "experiment": "EXP-003",
+  "samples": 200,
+  "initial_V": 505000.0,
+  "final_V": 63419.005,
+  "V_reduction_percent": 87.44178118811881,
+  "maximum_V": {
+    "value": 505000.0,
+    "t": 0.0
+  },
+  "minimum_V": {
+    "value": 5152.535455565759,
+    "t": 0.99
+  },
+  "maximum_positive_dVdt": {
+    "value": 176749.99999999985,
+    "t": 1.5,
+    "V": 63419.005,
+    "risk": "high",
+    "action": "observe_only"
+  },
+  "maximum_negative_dVdt": {
+    "value": -48480000.0,
+    "t": 0.01,
+    "V": 20200.0,
+    "risk": "low",
+    "action": "pass"
+  },
+  "dVdt_distribution": {
+    "positive": 53,
+    "negative": 103,
+    "zero": 44
+  },
+  "unauthorized": {
+    "count": 51,
+    "first_t": 1.0,
+    "last_t": 1.5
+  },
+  "drop_events": {
+    "count": 2,
+    "times": [
+      1.58,
+      1.84
+    ]
+  }
+}
