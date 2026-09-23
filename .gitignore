@@ -3,3 +3,4 @@ __pycache__/
 lyapunov_engine
 experiments/wave/*.csv
 experiments/wave/*.json
+*.pdf
