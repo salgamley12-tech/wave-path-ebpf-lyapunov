@@ -1,27 +1,35 @@
 mod lyapunov_verifier;
 mod ebpf_filter;
+mod sovereign_audit;
 
 use lyapunov_verifier::SovereignState;
 use ebpf_filter::{SovereignEbpfFilter, NetworkPacket};
+use sovereign_audit::SovereignAuditor;
 
 fn main() {
-    println!("==> AQI Sovereign Kernel: eBPF & Lyapunov Integration Active");
+    println!("==> AQI Sovereign Kernel: Full Tri-Core Integration Active");
 
+    let auditor = SovereignAuditor::new("STRICT");
+
+    // 1. فحص الاستقرار الرياضي
     let state = SovereignState::new(0.4, 1.0);
     if state.verify_invariant() {
-        println!("✅ [Lyapunov] النظام مستقر رياضياً.");
+        auditor.record("Lyapunov", "PASS", "النظام مستقر رياضياً ضمن الحدود الآمنة.");
+    } else {
+        auditor.record("Lyapunov", "FAIL", "تجاوز حدود استقرار النظام!");
     }
 
+    // 2. فحص الشبكة عبر eBPF
     let filter = SovereignEbpfFilter::new(0.8);
-    let incoming_packet = NetworkPacket {
-        source_ip: 0xC0A80101,
-        packet_size: 512,
-        risk_score: 0.3,
+    let packet = NetworkPacket { 
+        source_ip: 0xC0A80101, 
+        packet_size: 512, 
+        risk_score: 0.3 
     };
-
-    if filter.inspect_packet(&incoming_packet) {
-        println!("🛡️ [eBPF Filter] تم السماح بمرور الحزمة البرمجية بأمان تام.");
+    
+    if filter.inspect_packet(&packet) {
+        auditor.record("eBPF", "ALLOW", "تم السماح بمرور الحزمة البرمجية.");
     } else {
-        println!("🚨 [eBPF Filter] تم رصد خطر واعتراض الحزمة برمجياً!");
+        auditor.record("eBPF", "DROP", "تم اعتراض الحزمة لارتفاع مؤشر المخاطر.");
     }
 }
