@@ -1,54 +1,38 @@
-pub struct MotherState {
-    pub lyapunov_energy: u64,
-    pub sequence_id: u64,
-    pub system_status: u32,
-}
-
-pub struct MotherEngine {
-    pub last_known_energy: u64,
-}
-
-impl MotherEngine {
-    pub fn new(initial_energy: u64) -> Self {
-        Self { last_known_energy: initial_energy }
-    }
-
-    pub fn validate_and_update(&mut self, proposed_energy: u64) -> Result<(), &'static str> {
-        if proposed_energy > self.last_known_energy {
-            return Err("Violation: Energy increased V(next) > V(curr)");
-        }
-        self.last_known_energy = proposed_energy;
-        Ok(())
-    }
-}
+mod lyapunov_verifier;
+use lyapunov_verifier::SovereignState;
 
 fn main() {
-    println!("Sovereign Mother Core Verifier Active.");
+    println!("==> AQI Sovereign Kernel: Wave Path 3.0 Active");
+
+    // اختبار حالات مختلفة للنظام مقابل عتبة الاستقرار الرياضي
+    let safe_state = SovereignState::new(0.5, 1.0);
+    let critical_state = SovereignState::new(1.5, 1.0);
+
+    println!("[*] Evaluating state X = 0.5 (Threshold: 1.0)...");
+    if safe_state.verify_invariant() {
+        println!("✅ [PASS] النظام مستقر تماماً وفقاً لمعايير الحتمية الرياضية (Lyapunov V(x) <= Threshold).");
+    } else {
+        println!("⚠️ [FAIL] تحذير: تجاوز حدود استقرار النظام!");
+    }
+
+    println!("[*] Evaluating state X = 1.5 (Threshold: 1.0)...");
+    if critical_state.verify_invariant() {
+        println!("✅ [PASS] النظام مستقر تماماً.");
+    } else {
+        println!("⚠️ [FAIL] تم رصد عدم استقرار! تم تفعيل الحماية الحتمية.");
+    }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
-    use proptest::prelude::*;
 
-    proptest! {
-        #![proptest_config(ProptestConfig::with_cases(50000))]
+    #[test]
+    fn test_lyapunov_stability() {
+        let state = SovereignState::new(0.8, 1.0);
+        assert!(state.verify_invariant());
 
-        #[test]
-        fn prop_lyapunov_stability_check(
-            initial_energy in 100u64..1_000_000u64,
-            proposed_energy in 0u64..2_000_000u64
-        ) {
-            let mut engine = MotherEngine::new(initial_energy);
-            let res = engine.validate_and_update(proposed_energy);
-
-            if proposed_energy > initial_energy {
-                prop_assert!(res.is_err());
-                prop_assert_eq!(engine.last_known_energy, initial_energy);
-            } else {
-                prop_assert!(res.is_ok());
-                prop_assert_eq!(engine.last_known_energy, proposed_energy);
-            }
-        }
+        let unstable_state = SovereignState::new(1.2, 1.0);
+        assert!(!unstable_state.verify_invariant());
     }
 }
