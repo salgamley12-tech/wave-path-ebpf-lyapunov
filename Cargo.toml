@@ -1,0 +1,10 @@
+[package]
+name = "mother_core_verifier"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+zeroize = { version = "1.7", features = ["derive"] }
+
+[dev-dependencies]
+proptest = "1.4"
