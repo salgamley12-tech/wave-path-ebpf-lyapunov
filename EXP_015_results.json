@@ -1,0 +1,606 @@
+{
+    "experiment_id": "EXP_015_regularity_test",
+    "description": "Distinguishing true regularity from illusory noise under dynamic conditions.",
+    "data": [
+        {
+            "step": 0,
+            "signal_value": 0.24835707650561634,
+            "deviation": 0.24835707650561634,
+            "true_regularity": true
+        },
+        {
+            "step": 1,
+            "signal_value": -0.005708230929027822,
+            "deviation": 0.005708230929027822,
+            "true_regularity": true
+        },
+        {
+            "step": 2,
+            "signal_value": 0.4504367226240955,
+            "deviation": 0.4504367226240955,
+            "true_regularity": true
+        },
+        {
+            "step": 3,
+            "signal_value": 0.9507661725644229,
+            "deviation": 0.9507661725644229,
+            "true_regularity": false
+        },
+        {
+            "step": 4,
+            "signal_value": 0.13407129981941124,
+            "deviation": 0.13407129981941124,
+            "true_regularity": true
+        },
+        {
+            "step": 5,
+            "signal_value": 0.19496496722389678,
+            "deviation": 0.19496496722389678,
+            "true_regularity": true
+        },
+        {
+            "step": 6,
+            "signal_value": 1.1612688634140231,
+            "deviation": 1.1612688634140231,
+            "true_regularity": false
+        },
+        {
+            "step": 7,
+            "signal_value": 0.813512276665626,
+            "deviation": 0.813512276665626,
+            "true_regularity": false
+        },
+        {
+            "step": 8,
+            "signal_value": 0.2514595431329927,
+            "deviation": 0.2514595431329927,
+            "true_regularity": true
+        },
+        {
+            "step": 9,
+            "signal_value": 0.8119208392485799,
+            "deviation": 0.8119208392485799,
+            "true_regularity": false
+        },
+        {
+            "step": 10,
+            "signal_value": 0.3611990826484093,
+            "deviation": 0.3611990826484093,
+            "true_regularity": true
+        },
+        {
+            "step": 11,
+            "signal_value": 0.4099227329014108,
+            "deviation": 0.4099227329014108,
+            "true_regularity": true
+        },
+        {
+            "step": 12,
+            "signal_value": 0.8110601472651291,
+            "deviation": 0.8110601472651291,
+            "true_regularity": false
+        },
+        {
+            "step": 13,
+            "signal_value": -0.22204841367136563,
+            "deviation": 0.22204841367136563,
+            "true_regularity": true
+        },
+        {
+            "step": 14,
+            "signal_value": -0.08631245196475956,
+            "deviation": 0.08631245196475956,
+            "true_regularity": true
+        },
+        {
+            "step": 15,
+            "signal_value": 0.5334321874298493,
+            "deviation": 0.5334321874298493,
+            "true_regularity": true
+        },
+        {
+            "step": 16,
+            "signal_value": 0.3433098697823025,
+            "deviation": 0.3433098697823025,
+            "true_regularity": true
+        },
+        {
+            "step": 17,
+            "signal_value": 1.038577029745219,
+            "deviation": 1.038577029745219,
+            "true_regularity": false
+        },
+        {
+            "step": 18,
+            "signal_value": 0.45561995759391277,
+            "deviation": 0.45561995759391277,
+            "true_regularity": true
+        },
+        {
+            "step": 19,
+            "signal_value": 0.2279960095974608,
+            "deviation": 0.2279960095974608,
+            "true_regularity": true
+        },
+        {
+            "step": 20,
+            "signal_value": 1.687726625904851,
+            "deviation": 1.687726625904851,
+            "true_regularity": false
+        },
+        {
+            "step": 21,
+            "signal_value": 0.8589234180802738,
+            "deviation": 0.8589234180802738,
+            "true_regularity": false
+        },
+        {
+            "step": 22,
+            "signal_value": 1.01857185535617,
+            "deviation": 1.01857185535617,
+            "true_regularity": false
+        },
+        {
+            "step": 23,
+            "signal_value": 0.28146437135452573,
+            "deviation": 0.28146437135452573,
+            "true_regularity": true
+        },
+        {
+            "step": 24,
+            "signal_value": 0.7266759769204166,
+            "deviation": 0.7266759769204166,
+            "true_regularity": false
+        },
+        {
+            "step": 25,
+            "signal_value": 1.055335422528808,
+            "deviation": 1.055335422528808,
+            "true_regularity": false
+        },
+        {
+            "step": 26,
+            "signal_value": 0.421357987240791,
+            "deviation": 0.421357987240791,
+            "true_regularity": true
+        },
+        {
+            "step": 27,
+            "signal_value": 1.1776704510537686,
+            "deviation": 1.1776704510537686,
+            "true_regularity": false
+        },
+        {
+            "step": 28,
+            "signal_value": 0.6784831012553763,
+            "deviation": 0.6784831012553763,
+            "true_regularity": false
+        },
+        {
+            "step": 29,
+            "signal_value": 0.8179952836633037,
+            "deviation": 0.8179952836633037,
+            "true_regularity": false
+        },
+        {
+            "step": 30,
+            "signal_value": 0.64414751259997,
+            "deviation": 0.64414751259997,
+            "true_regularity": false
+        },
+        {
+            "step": 31,
+            "signal_value": 1.8484933863590503,
+            "deviation": 1.8484933863590503,
+            "true_regularity": false
+        },
+        {
+            "step": 32,
+            "signal_value": 0.8892451619223689,
+            "deviation": 0.8892451619223689,
+            "true_regularity": false
+        },
+        {
+            "step": 33,
+            "signal_value": 0.33716993930648864,
+            "deviation": 0.33716993930648864,
+            "true_regularity": true
+        },
+        {
+            "step": 34,
+            "signal_value": 1.2438423106863659,
+            "deviation": 1.2438423106863659,
+            "true_regularity": false
+        },
+        {
+            "step": 35,
+            "signal_value": 0.18534001554532087,
+            "deviation": 0.18534001554532087,
+            "true_regularity": true
+        },
+        {
+            "step": 36,
+            "signal_value": 0.860181371856636,
+            "deviation": 0.860181371856636,
+            "true_regularity": false
+        },
+        {
+            "step": 37,
+            "signal_value": -0.2671408905610251,
+            "deviation": 0.2671408905610251,
+            "true_regularity": true
+        },
+        {
+            "step": 38,
+            "signal_value": 0.002675976067076369,
+            "deviation": 0.002675976067076369,
+            "true_regularity": true
+        },
+        {
+            "step": 39,
+            "signal_value": 0.7165896041551668,
+            "deviation": 0.7165896041551668,
+            "true_regularity": false
+        },
+        {
+            "step": 40,
+            "signal_value": 0.9362931538604761,
+            "deviation": 0.9362931538604761,
+            "true_regularity": false
+        },
+        {
+            "step": 41,
+            "signal_value": 0.5993615321683916,
+            "deviation": 0.5993615321683916,
+            "true_regularity": true
+        },
+        {
+            "step": 42,
+            "signal_value": 0.40040238053329025,
+            "deviation": 0.40040238053329025,
+            "true_regularity": true
+        },
+        {
+            "step": 43,
+            "signal_value": 0.25037868761196924,
+            "deviation": 0.25037868761196924,
+            "true_regularity": true
+        },
+        {
+            "step": 44,
+            "signal_value": -0.3972408518580448,
+            "deviation": 0.3972408518580448,
+            "true_regularity": true
+        },
+        {
+            "step": 45,
+            "signal_value": -0.07818954735592465,
+            "deviation": 0.07818954735592465,
+            "true_regularity": true
+        },
+        {
+            "step": 46,
+            "signal_value": -0.010008852693352943,
+            "deviation": 0.010008852693352943,
+            "true_regularity": true
+        },
+        {
+            "step": 47,
+            "signal_value": 0.6865625090828078,
+            "deviation": 0.6865625090828078,
+            "true_regularity": false
+        },
+        {
+            "step": 48,
+            "signal_value": 0.26686518808841314,
+            "deviation": 0.26686518808841314,
+            "true_regularity": true
+        },
+        {
+            "step": 49,
+            "signal_value": -0.8497921441832993,
+            "deviation": 0.8497921441832993,
+            "true_regularity": false
+        },
+        {
+            "step": 50,
+            "signal_value": 0.13031405119932965,
+            "deviation": 0.13031405119932965,
+            "true_regularity": true
+        },
+        {
+            "step": 51,
+            "signal_value": -0.28759718351234087,
+            "deviation": 0.28759718351234087,
+            "true_regularity": true
+        },
+        {
+            "step": 52,
+            "signal_value": -0.4964623961263295,
+            "deviation": 0.4964623961263295,
+            "true_regularity": true
+        },
+        {
+            "step": 53,
+            "signal_value": 0.08552761163389339,
+            "deviation": 0.08552761163389339,
+            "true_regularity": true
+        },
+        {
+            "step": 54,
+            "signal_value": 0.23376720440654564,
+            "deviation": 0.23376720440654564,
+            "true_regularity": true
+        },
+        {
+            "step": 55,
+            "signal_value": 0.12361991623243063,
+            "deviation": 0.12361991623243063,
+            "true_regularity": true
+        },
+        {
+            "step": 56,
+            "signal_value": -0.820539297017933,
+            "deviation": 0.820539297017933,
+            "true_regularity": false
+        },
+        {
+            "step": 57,
+            "signal_value": -0.6128327096530176,
+            "deviation": 0.6128327096530176,
+            "true_regularity": false
+        },
+        {
+            "step": 58,
+            "signal_value": -0.34804567587162444,
+            "deviation": 0.34804567587162444,
+            "true_regularity": true
+        },
+        {
+            "step": 59,
+            "signal_value": -0.07928730030159103,
+            "deviation": 0.07928730030159103,
+            "true_regularity": true
+        },
+        {
+            "step": 60,
+            "signal_value": -0.8577461051432502,
+            "deviation": 0.8577461051432502,
+            "true_regularity": false
+        },
+        {
+            "step": 61,
+            "signal_value": -0.7595984888482,
+            "deviation": 0.7595984888482,
+            "true_regularity": false
+        },
+        {
+            "step": 62,
+            "signal_value": -1.2658616583818771,
+            "deviation": 1.2658616583818771,
+            "true_regularity": false
+        },
+        {
+            "step": 63,
+            "signal_value": -1.3538528863945936,
+            "deviation": 1.3538528863945936,
+            "true_regularity": false
+        },
+        {
+            "step": 64,
+            "signal_value": -0.3894989293337331,
+            "deviation": 0.3894989293337331,
+            "true_regularity": true
+        },
+        {
+            "step": 65,
+            "signal_value": -0.15444984034935982,
+            "deviation": 0.15444984034935982,
+            "true_regularity": true
+        },
+        {
+            "step": 66,
+            "signal_value": -0.9020304645746058,
+            "deviation": 0.9020304645746058,
+            "true_regularity": false
+        },
+        {
+            "step": 67,
+            "signal_value": -0.3942273253453239,
+            "deviation": 0.3942273253453239,
+            "true_regularity": true
+        },
+        {
+            "step": 68,
+            "signal_value": -0.7415362815807642,
+            "deviation": 0.7415362815807642,
+            "true_regularity": false
+        },
+        {
+            "step": 69,
+            "signal_value": -1.2675606960172305,
+            "deviation": 1.2675606960172305,
+            "true_regularity": false
+        },
+        {
+            "step": 70,
+            "signal_value": -0.7831443558057352,
+            "deviation": 0.7831443558057352,
+            "true_regularity": false
+        },
+        {
+            "step": 71,
+            "signal_value": -0.20978416298179414,
+            "deviation": 0.20978416298179414,
+            "true_regularity": true
+        },
+        {
+            "step": 72,
+            "signal_value": -1.0077344614359085,
+            "deviation": 1.0077344614359085,
+            "true_regularity": false
+        },
+        {
+            "step": 73,
+            "signal_value": -0.21453294804493928,
+            "deviation": 0.21453294804493928,
+            "true_regularity": true
+        },
+        {
+            "step": 74,
+            "signal_value": -2.309746679718747,
+            "deviation": 2.309746679718747,
+            "true_regularity": false
+        },
+        {
+            "step": 75,
+            "signal_value": -0.5879160869953961,
+            "deviation": 0.5879160869953961,
+            "true_regularity": true
+        },
+        {
+            "step": 76,
+            "signal_value": -0.9503149303421684,
+            "deviation": 0.9503149303421684,
+            "true_regularity": false
+        },
+        {
+            "step": 77,
+            "signal_value": -1.134311428245142,
+            "deviation": 1.134311428245142,
+            "true_regularity": false
+        },
+        {
+            "step": 78,
+            "signal_value": -0.9259311800557906,
+            "deviation": 0.9259311800557906,
+            "true_regularity": false
+        },
+        {
+            "step": 79,
+            "signal_value": -1.9486866987445204,
+            "deviation": 1.9486866987445204,
+            "true_regularity": false
+        },
+        {
+            "step": 80,
+            "signal_value": -1.0439838041838627,
+            "deviation": 1.0439838041838627,
+            "true_regularity": false
+        },
+        {
+            "step": 81,
+            "signal_value": -0.731075709598645,
+            "deviation": 0.731075709598645,
+            "true_regularity": false
+        },
+        {
+            "step": 82,
+            "signal_value": -0.14250634107682392,
+            "deviation": 0.14250634107682392,
+            "true_regularity": true
+        },
+        {
+            "step": 83,
+            "signal_value": -1.1088605390863382,
+            "deviation": 1.1088605390863382,
+            "true_regularity": false
+        },
+        {
+            "step": 84,
+            "signal_value": -1.2188227534969296,
+            "deviation": 1.2188227534969296,
+            "true_regularity": false
+        },
+        {
+            "step": 85,
+            "signal_value": -1.0270249860840248,
+            "deviation": 1.0270249860840248,
+            "true_regularity": false
+        },
+        {
+            "step": 86,
+            "signal_value": -0.276890649806496,
+            "deviation": 0.276890649806496,
+            "true_regularity": true
+        },
+        {
+            "step": 87,
+            "signal_value": -0.5257034566522698,
+            "deviation": 0.5257034566522698,
+            "true_regularity": true
+        },
+        {
+            "step": 88,
+            "signal_value": -0.907667711570059,
+            "deviation": 0.907667711570059,
+            "true_regularity": false
+        },
+        {
+            "step": 89,
+            "signal_value": -0.33627421249796213,
+            "deviation": 0.33627421249796213,
+            "true_regularity": true
+        },
+        {
+            "step": 90,
+            "signal_value": -0.49210204278157726,
+            "deviation": 0.49210204278157726,
+            "true_regularity": true
+        },
+        {
+            "step": 91,
+            "signal_value": -0.00187424083402421,
+            "deviation": 0.00187424083402421,
+            "true_regularity": true
+        },
+        {
+            "step": 92,
+            "signal_value": -0.7808214590278482,
+            "deviation": 0.7808214590278482,
+            "true_regularity": false
+        },
+        {
+            "step": 93,
+            "signal_value": -0.5354935289592113,
+            "deviation": 0.5354935289592113,
+            "true_regularity": true
+        },
+        {
+            "step": 94,
+            "signal_value": -0.5080875222645659,
+            "deviation": 0.5080875222645659,
+            "true_regularity": true
+        },
+        {
+            "step": 95,
+            "signal_value": -0.9829054612471386,
+            "deviation": 0.9829054612471386,
+            "true_regularity": false
+        },
+        {
+            "step": 96,
+            "signal_value": -0.041191105828121716,
+            "deviation": 0.041191105828121716,
+            "true_regularity": true
+        },
+        {
+            "step": 97,
+            "signal_value": 0.003935182516195623,
+            "deviation": 0.003935182516195623,
+            "true_regularity": true
+        },
+        {
+            "step": 98,
+            "signal_value": -0.06086719133533407,
+            "deviation": 0.06086719133533407,
+            "true_regularity": true
+        },
+        {
+            "step": 99,
+            "signal_value": -0.11729356668757396,
+            "deviation": 0.11729356668757396,
+            "true_regularity": true
+        }
+    ]
+}

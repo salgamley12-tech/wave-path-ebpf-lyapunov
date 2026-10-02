@@ -1,0 +1,26 @@
+EXP-016 — Feedback Update Boundary
+
+Initial state:
+State(bytes_rate=1.0, syscall_rate=1.0, connection_rate=0.98, anomaly_score=0.1)
+
+Case 1:
+state_updated: False
+values_preserved: True
+
+Case 2:
+state_updated: True
+values_preserved: True
+
+Result:
+EXP-016 VALIDATED
+
+Observation:
+The current implementation preserves all State field values for both
+state_updated=false and state_updated=true.
+
+Methodological boundary:
+This validates the behavior of the current implementation only.
+It does not establish a universal feedback-control law.
+
+Future feedback behavior requires an explicit and measurable state
+update rule.

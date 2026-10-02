@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>العرض التفاعلي - Wave Path 2.0</title>
+    <style>
+        body { font-family: Tahoma, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 20px; direction: rtl; }
+        .container { max-width: 800px; margin: auto; background: #1e293b; padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        h1 { color: #38bdf8; font-size: 22px; text-align: center; border-bottom: 2px solid #334155; padding-bottom: 10px; }
+        .slide-box { background: #0f172a; padding: 20px; border-radius: 8px; margin-top: 20px; min-height: 180px; border: 1px solid #334155; }
+        .slide-title { color: #facc15; font-size: 18px; font-weight: bold; margin-bottom: 10px; }
+        .slide-content { font-size: 16px; line-height: 1.6; }
+        .notes-box { background: #334155; padding: 15px; border-radius: 8px; margin-top: 15px; border-right: 4px solid #38bdf8; }
+        .controls { display: flex; justify-content: space-between; margin-top: 25px; }
+        button { background: #0284c7; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-size: 16px; cursor: pointer; }
+        button:hover { background: #0369a1; }
+        .counter { text-align: center; margin-top: 15px; color: #94a3b8; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>مشروع النواة السيادية الحتمية (Wave Path 2.0)</h1>
+        <div class="slide-box">
+            <div id="slideTitle" class="slide-title"></div>
+            <div id="slideContent" class="slide-content"></div>
+        </div>
+        <div class="notes-box">
+            <strong>ملاحظات المتحدث الشفهية:</strong>
+            <p id="slideNotes"></p>
+        </div>
+        <div class="controls">
+            <button onclick="prevSlide()">السابق</button>
+            <button onclick="nextSlide()">التالي</button>
+        </div>
+        <div id="slideCounter" class="counter"></div>
+    </div>
+
+    <script>
+        const slides = [
+            {
+                title: "الشريحة 1: العنوان والرئاسة الأكاديمية",
+                content: "مشروع النواة السيادية الحتمية: Wave Path 2.0 / AQI Sovereign Kernel. استقرارية نظم الذكاء الاصطناعي وتصفية الحزم الشبكية في مساحة النواة عبر eBPF وتطبيقات دالة ليابونوف V(x).",
+                notes: "افتتاح العرض والتعريف بنواة Wave Path 2.0 والربط بين رياضيات ليابونوف وسرعة eBPF."
+            },
+            {
+                title: "الشريحة 2: المشكلة والدافع العملي",
+                content: "التحدي الأول: عدم الاستقرار في البيئات الديناميكية. التحدي الثاني: قصور الحلول الأمنية التقليدية وبطء المعالجة في طبقة التطبيقات (User Space) مما يسبب تسريب البيانات.",
+                notes: "بيان مشكلة بطء معالجة البيانات في User Space وحتمية المعالجة في مستوى النواة."
+            },
+            {
+                title: "الشريحة 3: الحل المعماري - النواة السيادية",
+                content: "تقنية eBPF لتشغيل برامج آمنة داخل نواة النظام وتصفية الحزم بسرعة فائقة. دالة ليابونوف V(x) كمحرك رياضي يضمن عدم خروج النظام عن نطاق الاستقرار.",
+                notes: "شرح آلية الفحص الفوري للحزم وضبط الاستقرار عبر دالة V(x)."
+            },
+            {
+                title: "الشريحة 4: بيئة الاختبارات الميدانية المؤتمتة",
+                content: "اختبار EXP-014 (البصمة المرجعية)، EXP-015 (الانتظام السلوكي)، EXP-016 (التعافي الفوري)، وEXP-017 (التقييم المدمج).",
+                notes: "استعراض متسلسلة التجارب الميدانية من EXP-014 حتى EXP-017."
+            },
+            {
+                title: "الشريحة 5: النتائج والإنجازات العملية",
+                content: "اكتشاف وحظر 25 انتهاكاً أمنياً عالي الخطورة، تحقيق نسبة 0% تسريب للبيانات، والعودة الفورية لدالة الاستقرار.",
+                notes: "التأكيد على أرقام الإنجاز (حظر 25 انتهاكاً و0% تسريب بيانات)."
+            },
+            {
+                title: "الشريحة 6: أنبوب الأتمتة والاختبار المستمر (CI/CD)",
+                content: "التكامل الآلي عبر GitHub Actions لتنفيذ اختبارات التقييم الشامل تلقائياً مع كل تحديث برمجي وضمان الموثوقية.",
+                notes: "شرح أنبوب الاختبارات التلقائية CI/CD عبر GitHub Actions لضمان عدم تراجع الأداء."
+            },
+            {
+                title: "الشريحة 7: حزم التوثيق والإصدار المعتمد",
+                content: "الإصدار المعتمد Release v2.0.0 في المستودع المفتوح، مع توفر ملف الورقة البحثية paper.md والنسخة العربية paper_ar.pdf.",
+                notes: "الإشارة للإصدار الرسمي v2.0.0 والوثائق التقنية المتاحة."
+            },
+            {
+                title: "الشريحة 8: التوافق مع الرؤية السيادية",
+                content: "دعم الاستقلالية التقنية التامة، نشر النواة على السيرفرات المؤسسية ومراكز البيانات المركزية للأكاديمية.",
+                notes: "التأكيد على الاستقلالية التقنية والسيادة البرمجية الكاملة للمؤسسة."
+            },
+            {
+                title: "الشريحة 9: التوصيات وخريطة الطريق",
+                content: "المرحلة الثالثة (Wave Path 3.0) للحظر الموزع التكيفي، والتنفيذ الميداني التدريجي في بيئات التشغيل.",
+                notes: "عرض توصيات التوسع نحو Wave Path 3.0 والتطبيق الميداني التدريجي."
+            },
+            {
+                title: "الشريحة 10: الخاتمة والأسئلة (Q&A)",
+                content: "مشروع Wave Path 2.0 جاهز تماماً للتشغيل التفاعلي وتأمين الأصول الرقمية. نرحب بأسئلة اللجنة الأكاديمية.",
+                notes: "ختام العرض والترحيب بأسئلة اللجنة الأكاديمية الموقرة."
+            }
+        ];
+
+        let currentSlide = 0;
+
+        function updateSlide() {
+            document.getElementById("slideTitle").innerText = slides[currentSlide].title;
+            document.getElementById("slideContent").innerText = slides[currentSlide].content;
+            document.getElementById("slideNotes").innerText = slides[currentSlide].notes;
+            document.getElementById("slideCounter").innerText = `الشريحة ${currentSlide + 1} من ${slides.length}`;
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                updateSlide();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlide();
+            }
+        }
+
+        updateSlide();
+    </script>
+</body>
+</html>

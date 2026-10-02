@@ -1,0 +1,1059 @@
+{
+    "experiment_id": "EXP_017_integrated_evaluation",
+    "total_steps": 150,
+    "high_risk_violations": 25,
+    "successful_recovery_steps": 24,
+    "status": "PASSED",
+    "data": [
+        {
+            "step": 0,
+            "value": 0.5413699678799876,
+            "deviation": 0.5413699678799876,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 1,
+            "value": 0.2098646536490149,
+            "deviation": 0.2098646536490149,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 2,
+            "value": 0.3494712902138495,
+            "deviation": 0.3494712902138495,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 3,
+            "value": 0.3510884518258653,
+            "deviation": 0.3510884518258653,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 4,
+            "value": 0.4612133193264991,
+            "deviation": 0.4612133193264991,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 5,
+            "value": 0.34543964516262793,
+            "deviation": 0.34543964516262793,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 6,
+            "value": 0.3150917706184103,
+            "deviation": 0.3150917706184103,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 7,
+            "value": 0.6778585160299938,
+            "deviation": 0.6778585160299938,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 8,
+            "value": 0.2210329124654286,
+            "deviation": 0.2210329124654286,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 9,
+            "value": 0.836251525093442,
+            "deviation": 0.836251525093442,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 10,
+            "value": 0.8526579697308565,
+            "deviation": 0.8526579697308565,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 11,
+            "value": 0.6824538723966604,
+            "deviation": 0.6824538723966604,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 12,
+            "value": 0.8856629893267286,
+            "deviation": 0.8856629893267286,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 13,
+            "value": 0.7377918337972504,
+            "deviation": 0.7377918337972504,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 14,
+            "value": 0.7382374661547862,
+            "deviation": 0.7382374661547862,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 15,
+            "value": 1.1446401528787529,
+            "deviation": 1.1446401528787529,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 16,
+            "value": 1.0137526024938999,
+            "deviation": 1.0137526024938999,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 17,
+            "value": 1.3863748935825453,
+            "deviation": 1.3863748935825453,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 18,
+            "value": 1.51980453775007,
+            "deviation": 1.51980453775007,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 19,
+            "value": 1.1362016924506564,
+            "deviation": 1.1362016924506564,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 20,
+            "value": 1.0538167006854648,
+            "deviation": 1.0538167006854648,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 21,
+            "value": 1.3187509435078932,
+            "deviation": 1.3187509435078932,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 22,
+            "value": 0.6185453556020704,
+            "deviation": 0.6185453556020704,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 23,
+            "value": 0.7008721847803826,
+            "deviation": 0.7008721847803826,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 24,
+            "value": 0.8720312000186702,
+            "deviation": 0.8720312000186702,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 25,
+            "value": 0.9370174787052381,
+            "deviation": 0.9370174787052381,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 26,
+            "value": 0.8460996624207531,
+            "deviation": 0.8460996624207531,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 27,
+            "value": 0.7976485642210502,
+            "deviation": 0.7976485642210502,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 28,
+            "value": 0.8649109071247805,
+            "deviation": 0.8649109071247805,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 29,
+            "value": 0.6555831518987334,
+            "deviation": 0.6555831518987334,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 30,
+            "value": 0.70181350240203,
+            "deviation": 0.70181350240203,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 31,
+            "value": 0.5689694538248269,
+            "deviation": 0.5689694538248269,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 32,
+            "value": 0.32902752560506443,
+            "deviation": 0.32902752560506443,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 33,
+            "value": 0.19999681850238823,
+            "deviation": 0.19999681850238823,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 34,
+            "value": 0.08199810064700802,
+            "deviation": 0.08199810064700802,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 35,
+            "value": 0.28557415673181596,
+            "deviation": 0.28557415673181596,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 36,
+            "value": 0.08187274114325598,
+            "deviation": 0.08187274114325598,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 37,
+            "value": 0.40143391132991335,
+            "deviation": 0.40143391132991335,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 38,
+            "value": -0.015585980359859732,
+            "deviation": 0.015585980359859732,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 39,
+            "value": 0.25227411079925915,
+            "deviation": 0.25227411079925915,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 40,
+            "value": -0.4285086420295169,
+            "deviation": 0.4285086420295169,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 41,
+            "value": -0.27166166149963406,
+            "deviation": 0.27166166149963406,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 42,
+            "value": -0.6173051449178888,
+            "deviation": 0.6173051449178888,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 43,
+            "value": -0.46608537275298334,
+            "deviation": 0.46608537275298334,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 44,
+            "value": -0.3338305019298208,
+            "deviation": 0.3338305019298208,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 45,
+            "value": -0.6393837971197538,
+            "deviation": 0.6393837971197538,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 46,
+            "value": -0.6790943871984807,
+            "deviation": 0.6790943871984807,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 47,
+            "value": -0.6027451577297658,
+            "deviation": 0.6027451577297658,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 48,
+            "value": -0.3564641891253381,
+            "deviation": 0.3564641891253381,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 49,
+            "value": -0.958610779539057,
+            "deviation": 0.958610779539057,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 50,
+            "value": 0.16919723408740128,
+            "deviation": 0.16919723408740128,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 51,
+            "value": 0.214053696953725,
+            "deviation": 0.214053696953725,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 52,
+            "value": 0.2823341203990789,
+            "deviation": 0.2823341203990789,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 53,
+            "value": 0.13336296533396408,
+            "deviation": 0.13336296533396408,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 54,
+            "value": 0.3242310067542342,
+            "deviation": 0.3242310067542342,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 55,
+            "value": 0.4076837302773625,
+            "deviation": 0.4076837302773625,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 56,
+            "value": 0.014880717317075298,
+            "deviation": 0.014880717317075298,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 57,
+            "value": 0.5770705890972117,
+            "deviation": 0.5770705890972117,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 58,
+            "value": -0.010746758929630174,
+            "deviation": 0.010746758929630174,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 59,
+            "value": 0.35662600214530193,
+            "deviation": 0.35662600214530193,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 60,
+            "value": 0.33711345702943063,
+            "deviation": 0.33711345702943063,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 61,
+            "value": 0.7087709042482413,
+            "deviation": 0.7087709042482413,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 62,
+            "value": 0.25517819301174915,
+            "deviation": 0.25517819301174915,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 63,
+            "value": 0.42124506358280644,
+            "deviation": 0.42124506358280644,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 64,
+            "value": 0.5619789279161571,
+            "deviation": 0.5619789279161571,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 65,
+            "value": 0.6888253562652387,
+            "deviation": 0.6888253562652387,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 66,
+            "value": 0.5367369777191351,
+            "deviation": 0.5367369777191351,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 67,
+            "value": 0.9967948999849376,
+            "deviation": 0.9967948999849376,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 68,
+            "value": 0.47781301734914383,
+            "deviation": 0.47781301734914383,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 69,
+            "value": 0.6042391153225806,
+            "deviation": 0.6042391153225806,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 70,
+            "value": 0.8669490661830543,
+            "deviation": 0.8669490661830543,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 71,
+            "value": 0.7625158368461815,
+            "deviation": 0.7625158368461815,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 72,
+            "value": 0.7141295775935335,
+            "deviation": 0.7141295775935335,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 73,
+            "value": 1.3703291800553832,
+            "deviation": 1.3703291800553832,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 74,
+            "value": 1.3501350988842702,
+            "deviation": 1.3501350988842702,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 75,
+            "value": 0.813914074117912,
+            "deviation": 0.813914074117912,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 76,
+            "value": 1.5246846097718452,
+            "deviation": 1.5246846097718452,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 77,
+            "value": 1.6477345302383908,
+            "deviation": 1.6477345302383908,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 78,
+            "value": 1.281559226105543,
+            "deviation": 1.281559226105543,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 79,
+            "value": 1.8290287535556544,
+            "deviation": 1.8290287535556544,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 80,
+            "value": 0.15390013967641464,
+            "deviation": 0.15390013967641464,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 81,
+            "value": 0.4223305275317779,
+            "deviation": 0.4223305275317779,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 82,
+            "value": 0.558684615259063,
+            "deviation": 0.558684615259063,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 83,
+            "value": 0.7541926734732175,
+            "deviation": 0.7541926734732175,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 84,
+            "value": 0.7966974209054339,
+            "deviation": 0.7966974209054339,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 85,
+            "value": 0.8185610676019036,
+            "deviation": 0.8185610676019036,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 86,
+            "value": 0.6537829969800565,
+            "deviation": 0.6537829969800565,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 87,
+            "value": 1.1779161535446492,
+            "deviation": 1.1779161535446492,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 88,
+            "value": 1.0412966660035141,
+            "deviation": 1.0412966660035141,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 89,
+            "value": 0.8324456802898015,
+            "deviation": 0.8324456802898015,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 90,
+            "value": 0.851753307228367,
+            "deviation": 0.851753307228367,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 91,
+            "value": 1.26545097620506,
+            "deviation": 1.26545097620506,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 92,
+            "value": 1.1238633408905798,
+            "deviation": 1.1238633408905798,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 93,
+            "value": 0.8189244505588554,
+            "deviation": 0.8189244505588554,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 94,
+            "value": 0.9190469999529041,
+            "deviation": 0.9190469999529041,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 95,
+            "value": 1.1931815066981197,
+            "deviation": 1.1931815066981197,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 96,
+            "value": 0.5762264061359401,
+            "deviation": 0.5762264061359401,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 97,
+            "value": 0.7736942268040803,
+            "deviation": 0.7736942268040803,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 98,
+            "value": 1.0608201220943083,
+            "deviation": 1.0608201220943083,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 99,
+            "value": 0.6351212903295611,
+            "deviation": 0.6351212903295611,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 100,
+            "value": 1.1579149806217208,
+            "deviation": 1.1579149806217208,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 101,
+            "value": 0.5642914842846652,
+            "deviation": 0.5642914842846652,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 102,
+            "value": 0.4556346130449522,
+            "deviation": 0.4556346130449522,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 103,
+            "value": 0.4068465466518995,
+            "deviation": 0.4068465466518995,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 104,
+            "value": 0.6163562048386723,
+            "deviation": 0.6163562048386723,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 105,
+            "value": 0.45681625170363455,
+            "deviation": 0.45681625170363455,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 106,
+            "value": 0.31189294772665166,
+            "deviation": 0.31189294772665166,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 107,
+            "value": 0.4120717084221159,
+            "deviation": 0.4120717084221159,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 108,
+            "value": 0.15009126019662167,
+            "deviation": 0.15009126019662167,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 109,
+            "value": 0.28056555033077446,
+            "deviation": 0.28056555033077446,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 110,
+            "value": 0.2768858955640911,
+            "deviation": 0.2768858955640911,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 111,
+            "value": 0.13499947718867672,
+            "deviation": 0.13499947718867672,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 112,
+            "value": -0.23717724477204655,
+            "deviation": 0.23717724477204655,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 113,
+            "value": 0.07525214700350116,
+            "deviation": 0.07525214700350116,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 114,
+            "value": -0.15626758964738985,
+            "deviation": 0.15626758964738985,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 115,
+            "value": -0.10407351646236432,
+            "deviation": 0.10407351646236432,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 116,
+            "value": -0.15566682264166432,
+            "deviation": 0.15566682264166432,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 117,
+            "value": -0.5060960701689642,
+            "deviation": 0.5060960701689642,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 118,
+            "value": -0.34637698390183713,
+            "deviation": 0.34637698390183713,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 119,
+            "value": -0.7158468472378832,
+            "deviation": 0.7158468472378832,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 120,
+            "value": -0.5236217577545454,
+            "deviation": 0.5236217577545454,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 121,
+            "value": -1.027639289364132,
+            "deviation": 1.027639289364132,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 122,
+            "value": -0.625241169585474,
+            "deviation": 0.625241169585474,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 123,
+            "value": -0.8074976391376556,
+            "deviation": 0.8074976391376556,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 124,
+            "value": -1.194568641757805,
+            "deviation": 1.194568641757805,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 125,
+            "value": -0.8322047239035975,
+            "deviation": 0.8322047239035975,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 126,
+            "value": -1.0391901729945685,
+            "deviation": 1.0391901729945685,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 127,
+            "value": -0.5362170653445419,
+            "deviation": 0.5362170653445419,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 128,
+            "value": -0.9405015613174911,
+            "deviation": 0.9405015613174911,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 129,
+            "value": -0.5326861578982474,
+            "deviation": 0.5326861578982474,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 130,
+            "value": -0.8536951689157845,
+            "deviation": 0.8536951689157845,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 131,
+            "value": -1.1712293356050922,
+            "deviation": 1.1712293356050922,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 132,
+            "value": -0.9294971264580326,
+            "deviation": 0.9294971264580326,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 133,
+            "value": -0.9269582152514584,
+            "deviation": 0.9269582152514584,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 134,
+            "value": -0.7807958753840982,
+            "deviation": 0.7807958753840982,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 135,
+            "value": -1.2370711988577918,
+            "deviation": 1.2370711988577918,
+            "risk_level": "HIGH",
+            "stable": false
+        },
+        {
+            "step": 136,
+            "value": -0.939945635364297,
+            "deviation": 0.939945635364297,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 137,
+            "value": -0.9635479791663453,
+            "deviation": 0.9635479791663453,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 138,
+            "value": -0.7528548529713093,
+            "deviation": 0.7528548529713093,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 139,
+            "value": -0.706739177111549,
+            "deviation": 0.706739177111549,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 140,
+            "value": -0.6226581656282748,
+            "deviation": 0.6226581656282748,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 141,
+            "value": -0.48976952387497696,
+            "deviation": 0.48976952387497696,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 142,
+            "value": -0.5914767543820181,
+            "deviation": 0.5914767543820181,
+            "risk_level": "MEDIUM",
+            "stable": false
+        },
+        {
+            "step": 143,
+            "value": -0.32867922428591706,
+            "deviation": 0.32867922428591706,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 144,
+            "value": -0.4859548803713252,
+            "deviation": 0.4859548803713252,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 145,
+            "value": -0.4128534265273348,
+            "deviation": 0.4128534265273348,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 146,
+            "value": -0.181615463749697,
+            "deviation": 0.181615463749697,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 147,
+            "value": -0.12862233769866185,
+            "deviation": 0.12862233769866185,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 148,
+            "value": -0.28079331127852925,
+            "deviation": 0.28079331127852925,
+            "risk_level": "LOW",
+            "stable": true
+        },
+        {
+            "step": 149,
+            "value": 0.44631104868923976,
+            "deviation": 0.44631104868923976,
+            "risk_level": "LOW",
+            "stable": true
+        }
+    ]
+}

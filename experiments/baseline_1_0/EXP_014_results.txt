@@ -1,0 +1,25 @@
+EXP-014 — Risk Boundary
+A_STABLE
+V: 1.0
+dVdt: -0.1
+stable: True
+risk_level: LOW
+---
+B_ZERO_DERIVATIVE
+V: 1.0
+dVdt: 0.0
+stable: True
+risk_level: LOW
+---
+C_POSITIVE_DEVIATION
+V: 1.0
+dVdt: 0.02
+stable: False
+risk_level: MEDIUM
+---
+D_HIGH_POSITIVE_DEVIATION
+V: 1.0
+dVdt: 0.1
+stable: False
+risk_level: HIGH
+---

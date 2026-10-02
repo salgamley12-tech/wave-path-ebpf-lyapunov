@@ -1,0 +1,9 @@
+{
+  "interface": "wave-path-quran-reference",
+  "version": "1.0",
+  "source": "../wave-path-quran-reference",
+  "export": "../wave-path-quran-reference/integration/adapter/reference_export.json",
+  "runtime_control": false,
+  "policy_override": false,
+  "controller_override": false
+}

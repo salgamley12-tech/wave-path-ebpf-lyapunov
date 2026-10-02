@@ -1,0 +1,23 @@
+EXP-015 — Feedback State Loop
+
+Initial state:
+State(bytes_rate=1.0, syscall_rate=1.0, connection_rate=0.98, anomaly_score=0.1)
+
+Feedback:
+Feedback(previous_action='MONITOR', observed_mode='OBSERVE', state_updated=False)
+
+Final state:
+State(bytes_rate=1.0, syscall_rate=1.0, connection_rate=0.98, anomaly_score=0.1)
+
+state_preserved: True
+
+Result:
+EXP-015 VALIDATED
+
+Observation:
+When state_updated is false, the implemented feedback layer preserves
+the existing state without modification.
+
+Boundary:
+This validates the implemented software behavior only. It does not
+establish a universal feedback-control law.

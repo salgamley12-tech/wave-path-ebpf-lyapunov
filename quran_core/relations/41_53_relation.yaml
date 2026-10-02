@@ -1,0 +1,13 @@
+source_id: quran-41-53
+relation_id: observation_to_discernment
+textual_terms:
+  - الآفاق
+  - أنفسهم
+  - نريهم
+  - يتبين
+engineering_abstraction:
+  domains: [external, internal]
+  observation: O(X)
+  evidence: E(D,H)
+status: methodological_abstraction
+claim_boundary: "The engineering mapping is an explicit abstraction, not a tafsir claim and not a derivation of a physical law."

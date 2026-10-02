@@ -1,0 +1,39 @@
+{
+  "experiment": "EXP-013",
+  "description": "Controlled observation-noise integration using the actual wave model, observation layer, Lyapunov calculation, and Wave Path trajectory.",
+  "configuration": {
+    "seconds": 2.0,
+    "dt": 0.001,
+    "omega": 6.283185307179586,
+    "damping": 0.35,
+    "u0": 1.0,
+    "v0": 0.0
+  },
+  "observation": {
+    "sigma": 0.01,
+    "seed": 7,
+    "rmse": 0.010126179713664026,
+    "max_abs_noise": 0.03444705105326818
+  },
+  "samples": 2001,
+  "lyapunov": {
+    "initial_V": 19.638320555259053,
+    "final_V": 4.759952605748658,
+    "minimum_V": 4.3793514684534065,
+    "maximum_V": 20.385783783522392,
+    "maximum_V_model_difference": 0.9140689456240736
+  },
+  "wave_path": {
+    "points": 2001,
+    "displacement": 0.5093315072746865,
+    "monotonic_time": true
+  },
+  "validation": {
+    "sample_count_correct": true,
+    "noise_present": true,
+    "rmse_positive": true,
+    "wave_path_points_correct": true,
+    "finite_values": true,
+    "validation_passed": true
+  }
+}

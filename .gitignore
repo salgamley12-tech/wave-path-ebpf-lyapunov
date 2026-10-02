@@ -1,1 +1,10 @@
+<<<<<<< HEAD
 /target
+=======
+__pycache__/
+*.pyc
+lyapunov_engine
+experiments/wave/*.csv
+experiments/wave/*.json
+*.pdf
+>>>>>>> cd678ed56f8c032d9e1c1daca3f2ecc30c4e3ad5

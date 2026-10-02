@@ -1,0 +1,3 @@
+source: Quran 41:53
+arabic: سَنُرِيهِمْ آيَاتِنَا فِي الْآفَاقِ وَفِي أَنفُسِهِمْ حَتَّىٰ يَتَبَيَّنَ لَهُمْ أَنَّهُ الْحَقُّ
+methodological_note: This verse is used only as the starting reference for an observation/discernment workflow. It is not treated as a literal physical equation.

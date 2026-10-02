@@ -1,0 +1,46 @@
+{
+  "experiment": "EXP-006",
+  "description": "Sensitivity scenarios for synthetic disturbances",
+  "summary": {
+    "low": {
+      "samples": 200,
+      "max_V": 200.5,
+      "min_V": 50.5,
+      "max_dVdt": 14999.999999999987,
+      "risk_counts": {
+        "low": 199,
+        "high": 1
+      },
+      "action_counts": {
+        "pass": 199,
+        "drop": 1
+      }
+    },
+    "medium": {
+      "samples": 200,
+      "max_V": 800.5,
+      "min_V": 50.5,
+      "max_dVdt": 74999.99999999993,
+      "risk_counts": {
+        "medium": 160,
+        "high": 40
+      },
+      "action_counts": {
+        "observe_only": 200
+      }
+    },
+    "high": {
+      "samples": 200,
+      "max_V": 2450.5,
+      "min_V": 50.5,
+      "max_dVdt": 239999.9999999998,
+      "risk_counts": {
+        "medium": 139,
+        "high": 61
+      },
+      "action_counts": {
+        "observe_only": 200
+      }
+    }
+  }
+}

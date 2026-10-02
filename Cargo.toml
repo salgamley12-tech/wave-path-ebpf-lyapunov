@@ -1,4 +1,5 @@
 [package]
+<<<<<<< HEAD
 name = "mother_core_verifier"
 version = "0.1.0"
 edition = "2021"
@@ -8,3 +9,13 @@ zeroize = { version = "1.7", features = ["derive"] }
 
 [dev-dependencies]
 proptest = "1.4"
+=======
+name = "wave-path-kernel"
+version = "0.1.0"
+edition = "2021"
+authors = ["Sultan Ali Al-Gamley <salgamley12-tech>"]
+description = "Sovereign Kernel Architecture (AQI) - Lyapunov Stability & Deterministic Enforcement"
+
+[dependencies]
+# تم تخصيص هذا الملف لإدارة إعدادات النواة السيادية وبيئة التشغيل الحتمية
+>>>>>>> cd678ed56f8c032d9e1c1daca3f2ecc30c4e3ad5

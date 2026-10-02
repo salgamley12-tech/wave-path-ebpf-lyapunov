@@ -1,0 +1,23 @@
+{
+  "experiment": "EXP-002",
+  "input": "experiments/integrated/results.csv",
+  "output": "experiments/integrated/results_full.csv",
+  "samples": 200,
+  "initial_V": 505000.0,
+  "final_V": 63419.005,
+  "minimum_V": 5152.535455565759,
+  "maximum_V": 505000.0,
+  "positive_dVdt": 53,
+  "negative_dVdt": 103,
+  "zero_dVdt": 44,
+  "risk_counts": {
+    "low": 147,
+    "high": 53
+  },
+  "action_counts": {
+    "pass": 147,
+    "observe_only": 51,
+    "drop": 2
+  },
+  "unauthorized_events": 51
+}

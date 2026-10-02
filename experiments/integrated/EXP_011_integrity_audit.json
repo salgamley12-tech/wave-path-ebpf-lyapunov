@@ -1,0 +1,26 @@
+{
+  "experiment": "EXP-011",
+  "description": "Final integrity audit of the integrated experimental artifacts",
+  "file_checks": {
+    "experiments/integrated/results.csv": true,
+    "experiments/integrated/results_full.csv": true,
+    "experiments/integrated/sensitivity_scenarios.csv": true,
+    "experiments/integrated/sensitivity_scenarios.json": true,
+    "experiments/integrated/sensitivity_analysis.json": true,
+    "experiments/integrated/EXP_008_validation.json": true,
+    "experiments/integrated/EXP_010_final_report.json": true
+  },
+  "results_checks": {
+    "samples_200": true,
+    "required_fields": true,
+    "finite_values": true
+  },
+  "sensitivity_checks": {
+    "low_samples": true,
+    "medium_samples": true,
+    "high_samples": true,
+    "V_order": true,
+    "dVdt_order": true
+  },
+  "validation_passed": true
+}

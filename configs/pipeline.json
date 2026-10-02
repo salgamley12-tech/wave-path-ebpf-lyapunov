@@ -1,0 +1,9 @@
+{
+  "policy_version": "1.0",
+  "high_dvdt": 0.0,
+  "high_anomaly": 0.85,
+  "medium_anomaly": 0.50,
+  "xdp_default": "PASS",
+  "max_blocklist_entries": 1024,
+  "observation_rule": "qc-41-53-observation-v1"
+}
