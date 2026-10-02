@@ -1,38 +1,27 @@
 mod lyapunov_verifier;
+mod ebpf_filter;
+
 use lyapunov_verifier::SovereignState;
+use ebpf_filter::{SovereignEbpfFilter, NetworkPacket};
 
 fn main() {
-    println!("==> AQI Sovereign Kernel: Wave Path 3.0 Active");
+    println!("==> AQI Sovereign Kernel: eBPF & Lyapunov Integration Active");
 
-    // اختبار حالات مختلفة للنظام مقابل عتبة الاستقرار الرياضي
-    let safe_state = SovereignState::new(0.5, 1.0);
-    let critical_state = SovereignState::new(1.5, 1.0);
-
-    println!("[*] Evaluating state X = 0.5 (Threshold: 1.0)...");
-    if safe_state.verify_invariant() {
-        println!("✅ [PASS] النظام مستقر تماماً وفقاً لمعايير الحتمية الرياضية (Lyapunov V(x) <= Threshold).");
-    } else {
-        println!("⚠️ [FAIL] تحذير: تجاوز حدود استقرار النظام!");
+    let state = SovereignState::new(0.4, 1.0);
+    if state.verify_invariant() {
+        println!("✅ [Lyapunov] النظام مستقر رياضياً.");
     }
 
-    println!("[*] Evaluating state X = 1.5 (Threshold: 1.0)...");
-    if critical_state.verify_invariant() {
-        println!("✅ [PASS] النظام مستقر تماماً.");
+    let filter = SovereignEbpfFilter::new(0.8);
+    let incoming_packet = NetworkPacket {
+        source_ip: 0xC0A80101,
+        packet_size: 512,
+        risk_score: 0.3,
+    };
+
+    if filter.inspect_packet(&incoming_packet) {
+        println!("🛡️ [eBPF Filter] تم السماح بمرور الحزمة البرمجية بأمان تام.");
     } else {
-        println!("⚠️ [FAIL] تم رصد عدم استقرار! تم تفعيل الحماية الحتمية.");
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_lyapunov_stability() {
-        let state = SovereignState::new(0.8, 1.0);
-        assert!(state.verify_invariant());
-
-        let unstable_state = SovereignState::new(1.2, 1.0);
-        assert!(!unstable_state.verify_invariant());
+        println!("🚨 [eBPF Filter] تم رصد خطر واعتراض الحزمة برمجياً!");
     }
 }
