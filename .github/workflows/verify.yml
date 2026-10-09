@@ -1,0 +1,37 @@
+name: AQI Sovereign Kernel - Formal Verification Pipeline
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  formal-verification:
+    name: Execute Formal Proofs (Kani & CBMC)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Install System Dependencies & CBMC
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang llvm libbpf-dev cbmc
+
+      - name: Install Rust Toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install & Setup Kani Verifier
+        run: |
+          cargo install --force kani-verifier
+          cargo kani setup
+
+      - name: Enforce Formal Verification Proofs ($V(x) \le V_{\max}$)
+        run: |
+          make verify
+
+      - name: Build Production Targets
+        run: |
+          make build
