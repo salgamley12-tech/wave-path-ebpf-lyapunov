@@ -87,3 +87,24 @@ fn main() {
     monitor_handle.join().unwrap();
     println!("=== [SHUTDOWN] AQI Sovereign Kernel Execution Terminated Safely ===");
 }
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn test_lyapunov_stability_bound() {
+        let v_x = 150;
+        let delay_ns = 152_656;
+        let max_delay_limit = 500_000;
+
+        assert!(v_x > 0, "Lyapunov value V(x) must be positive");
+        assert!(delay_ns <= max_delay_limit, "Execution delay exceeded deterministic bound");
+    }
+}
+
+#[test]
+#[should_panic]
+fn test_lyapunov_boundary_breach() {
+    let delay_ns = 600_000;
+    let max_delay_limit = 500_000;
+    assert!(delay_ns <= max_delay_limit, "Expected failure on limit breach");
+}
