@@ -4,22 +4,3 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-redbpf = { version = "2.3", optional = true }
-
-[[bin]]
-name = "sovereign_kernel"
-path = "src/user/main.rs"
-
-
-
-
-
-
-
-
-
-
-
-[profile.release]
-opt-level = 3
-
