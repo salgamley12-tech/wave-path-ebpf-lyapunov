@@ -1,11 +1,13 @@
-TARGET = xdp_lyapunov_kernel
 CC = clang
+CFLAGS = -O3 -Wall
 
-all: $(TARGET).o
+all: sovereign_sim
 
-$(TARGET).o: $(TARGET).c
-	$(CC) -target bpf -O2 -I. -c $< -o $@
+sovereign_sim: main.c
+$(CC)$(CFLAGS) main.c -o sovereign_sim
+@echo "[+] Build complete. Running Sovereign Simulation..."
+./sovereign_sim
 
 clean:
-	rm -f *.o
-	rm -rf bpf
+rm -f sovereign_sim
+@echo "[+] Cleaned build artifacts."
