@@ -1,4 +1,3 @@
-
 name: Build Sultan Ali Systems APK
 
 on:
@@ -15,15 +14,16 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          
+
       - name: Install Dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y openjdk-17-jdk git zip unzip libtool automake autoconf m4 gettext libltdl-dev pkg-config
-          pip install --upgrade pip
+          python -m pip install --upgrade pip
+          python -m pip install --upgrade setuptools wheel
           pip install cython==3.0.10 virtualenv
           pip install python-for-android kivy
-          
+
       - name: Build APK via p4a
         run: |
           p4a apk --private . \
