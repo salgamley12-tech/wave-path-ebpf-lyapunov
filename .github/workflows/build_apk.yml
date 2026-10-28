@@ -19,21 +19,23 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y openjdk-17-jdk git zip unzip libtool automake autoconf m4 gettext libltdl-dev pkg-config
-          python -m pip install "pip<24.0" setuptools wheel
-          pip install cython==3.0.10 virtualenv
+          python -m pip install --upgrade pip
+          pip install --upgrade setuptools wheel cython==3.0.10 virtualenv
+          pip install --upgrade "pip<24.0"
           pip install python-for-android kivy
 
       - name: Build APK via p4a
         run: |
-          export PIP_NO_BUILD_ISOLATION=false
-          p4a apk --private . \
-                  --package com.algamley.systems.app \
-                  --name "Sultan Ali Systems" \
-                  --version 1.0.0 \
-                  --bootstrap sdl2 \
-                  --requirements python3,kivy \
-                  --arch arm64-v8a \
-                  --android-api 34
+          p4a create --bootstrap sdl2 \
+                     --requirements python3,kivy \
+                     --package com.algamley.systems.app \
+                     --name "Sultan Ali Systems" \
+                     --version 1.0.0 \
+                     --arch arm64-v8a \
+                     --android-api 34 \
+                     --private .
+        env:
+          PIP_NO_BUILD_ISOLATION: "true"
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
