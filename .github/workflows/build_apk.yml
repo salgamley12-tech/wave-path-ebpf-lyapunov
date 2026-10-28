@@ -1,0 +1,40 @@
+name: Build Sultan Ali Systems APK
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openjdk-17-jdk git zip unzip
+          pip install --upgrade pip
+          pip install cython==3.0.10 virtualenv
+          pip install python-for-android kivy
+
+      - name: Build APK via p4a
+        run: |
+          p4a apk --private . \
+                  --package com.algamley.systems.app \
+                  --name "Sultan Ali Systems" \
+                  --version 1.0.0 \
+                  --bootstrap sdl2 \
+                  --requirements python3,kivy \
+                  --arch arm64-v8a
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SultanAliSystems-APK
+          path: '*.apk'
