@@ -25,6 +25,7 @@ jobs:
 
       - name: Build APK via p4a
         run: |
+          export PIP_NO_BUILD_ISOLATION=false
           p4a apk --private . \
                   --package com.algamley.systems.app \
                   --name "Sultan Ali Systems" \
