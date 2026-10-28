@@ -19,8 +19,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y openjdk-17-jdk git zip unzip libtool automake autoconf m4 gettext libltdl-dev pkg-config
-          python -m pip install --upgrade pip
-          python -m pip install --upgrade setuptools wheel
+          python -m pip install "pip<24.0" setuptools wheel
           pip install cython==3.0.10 virtualenv
           pip install python-for-android kivy
 
