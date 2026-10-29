@@ -21,7 +21,7 @@ jobs:
           sudo apt-get install -y openjdk-17-jdk git zip unzip libtool automake autoconf m4 gettext libltdl-dev pkg-config
           python -m pip install --upgrade pip
           pip install setuptools==68.2.2 wheel cython==3.0.10 virtualenv
-          pip install git+https://github.com/kivy/python-for-android.git
+          pip install python-for-android
 
       - name: Build APK via p4a
         run: |
@@ -34,8 +34,7 @@ jobs:
                   --arch arm64-v8a \
                   --android-api 34
         env:
-          PIP_NO_BUILD_ISOLATION: "True"
-          PIP_USE_PEP517: "false"
+          PIP_NO_BUILD_ISOLATION: "False"
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
