@@ -1,61 +1,86 @@
-name: Build Sultan Ali Systems APK
+name: Build Android APK via Buildozer
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch: # يتيح تشغيل البناء يدويًا بنقرة زر من تبويب Actions
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
+    timeout-minutes: 120 # مهلة زمنية كافية لتجاوز عمليات التجميع الطويلة
+
     steps:
+      # 1. جلب كود المشروع من المستودع
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      # 2. تفريغ الذاكرة ومساحة القرص لتجنب خطأ نفاد الذاكرة (OOM) أثناء تجميع C/C++
+      - name: Free Disk Space
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /opt/ghc
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+          df -h
+
+      # 3. إعداد بيئة بايثون المناسبة
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.10'
 
+      # 4. تثبيت أدوات وحزم النظام الأساسية لتجميع حزم الأندرويد
       - name: Install System Dependencies
         run: |
-          sudo dpkg --add-architecture i386
           sudo apt-get update
           sudo apt-get install -y \
-            build-essential ccache git wget curl \
-            libltdl-dev libffi-dev libssl-dev \
-            openjdk-17-jdk unzip ant autoconf automake libtool \
-            git zip zlib1g-dev pkg-config libncurses5 \
-            libc6:i386 libstdc++6:i386 zlib1g:i386
+            python3-pip \
+            git \
+            zip \
+            unzip \
+            openjdk-17-jdk \
+            autoconf \
+            libtool \
+            pkg-config \
+            zlib1g-dev \
+            libncurses5-dev \
+            libncursesw5-dev \
+            libltdl-dev \
+            libffi-dev \
+            libssl-dev
 
+      # 5. تثبيت حزم بايثون وتحديث Buildozer و Cython
       - name: Install Python Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install --upgrade cython==0.29.36 setuptools==68.2.2 wheel
-          pip install --upgrade buildozer
+          pip install --upgrade cython==0.29.36 buildozer pydsbridge
 
-      - name: Initialize & Configure Buildozer Spec
-        run: |
-          if [ ! -f buildozer.spec ]; then
-            buildozer init
-          fi
-          # تعديل وتثبيت الإعدادات الأساسية لضمان التوافق التام
-          sed -i 's/# title = My Application/title = Sultan Ali Systems/' buildozer.spec
-          sed -i 's/# package.name = myapp/package.name = sultanalisystems/' buildozer.spec
-          sed -i 's/# package.domain = org.example/package.domain = com.algamley.systems/' buildozer.spec
-          sed -i 's/# requirements = python3,kivy/requirements = python3,kivy/' buildozer.spec
-          sed -i 's/# android.api = 33/android.api = 33/' buildozer.spec
-          sed -i 's/# android.min_api = 21/android.min_api = 21/' buildozer.spec
-          sed -i 's/# android.ndk = 25b/android.ndk = 25b/' buildozer.spec
-          sed -i 's/# android.accept_sdk_license = False/android.accept_sdk_license = True/' buildozer.spec
-          # حصر البناء على معمارية arm64-v8a لتجنب تضارب التجميع الثنائي
-          sed -i 's/# android.archs = arm64-v8a, armeabi-v7a/android.archs = arm64-v8a/' buildozer.spec
+      # 6. إعداد التخزين المؤقت لتوفير الوقت والبيانات في عمليات البناء القادمة
+      - name: Cache Buildozer Global Directory
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.buildozer
+            .buildozer
+          key: ${{ runner.os }}-buildozer-${{ hashFiles('buildozer.spec') }}
+          restore-keys: |
+            ${{ runner.os }}-buildozer-
 
+      # 7. تشغيل Buildozer مع ضبط المعالجة المتوازية (-j2) لمنع انهيار الذاكرة العشوائية
       - name: Build APK via Buildozer
+        env:
+          MAKEFLAGS: "-j2"
         run: |
           buildozer -v android debug
 
+      # 8. رفع ملف الـ APK الناتج ليكون جاهزاً للتحميل
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: SultanAliSystems-APK
+          name: AQI-Sovereign-Kernel-APK
           path: bin/*.apk
           
