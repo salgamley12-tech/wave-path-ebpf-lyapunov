@@ -30,19 +30,21 @@ jobs:
           pip install --upgrade cython==0.29.36 setuptools==68.2.2 wheel
           pip install --upgrade buildozer
 
-      - name: Initialize Buildozer Spec & Accept Licenses
+      - name: Initialize & Configure Buildozer Spec
         run: |
           if [ ! -f buildozer.spec ]; then
             buildozer init
           fi
-          # تعديل الإعدادات لتتناسب مع المشروع
-          sed -i 's/# title = My Application/title = Sultan Ali Systems/' buildozer.spec
-          sed -i 's/# package.name = myapp/package.name = sultanalisystems/' buildozer.spec
-          sed -i 's/# package.domain = org.example/package.domain = com.algamley.systems/' buildozer.spec
-          sed -i 's/# requirements = python3,kivy/requirements = python3,kivy/' buildozer.spec
-          sed -i 's/# android.api = 33/android.api = 33/' buildozer.spec
-          sed -i 's/# android.sdk = 33/android.sdk = 33/' buildozer.spec
-          sed -i 's/# android.accept_sdk_license = False/android.accept_sdk_license = True/' buildozer.spec
+          # حقن الإعدادات الحاسمة وتثبيت إصدار NDK مستقر (25b) وتراخيص SDK
+          echo "" >> buildozer.spec
+          echo "title = Sultan Ali Systems" >> buildozer.spec
+          echo "package.name = sultanalisystems" >> buildozer.spec
+          echo "package.domain = com.algamley.systems" >> buildozer.spec
+          echo "requirements = python3,kivy" >> buildozer.spec
+          echo "android.api = 33" >> buildozer.spec
+          echo "android.min_api = 21" >> buildozer.spec
+          echo "android.ndk = 25b" >> buildozer.spec
+          echo "android.accept_sdk_license = True" >> buildozer.spec
 
       - name: Build APK via Buildozer
         run: |
