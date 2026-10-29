@@ -34,7 +34,8 @@ jobs:
                   --arch arm64-v8a \
                   --android-api 34
         env:
-          PACKAGES_PATH: ${{ github.workspace }}/.p4a
+          PIP_NO_BUILD_ISOLATION: "True"
+          PIP_USE_PEP517: "false"
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
