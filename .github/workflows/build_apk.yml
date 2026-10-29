@@ -33,6 +33,15 @@ jobs:
             git zip zlib1g-dev pkg-config libncurses5 \
             libc6:i386 libstdc++6:i386 zlib1g:i386
 
+      - name: Pre-install Android NDK
+        run: |
+          mkdir -p ~/.buildozer/android/platform
+          cd ~/.buildozer/android/platform
+          wget -q https://dl.google.com/android/repository/android-ndk-r25b-linux.zip
+          unzip -q android-ndk-r25b-linux.zip
+          mv android-ndk-r25b android-ndk-r25b-linux-x86_64
+          rm android-ndk-r25b-linux.zip
+
       - name: Install Python Dependencies & P4A
         run: |
           python -m pip install --upgrade pip
