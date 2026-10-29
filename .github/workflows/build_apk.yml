@@ -17,12 +17,14 @@ jobs:
 
       - name: Install System Dependencies
         run: |
+          sudo dpkg --add-architecture i386
           sudo apt-get update
           sudo apt-get install -y \
             build-essential ccache git wget curl \
             libltdl-dev libffi-dev libssl-dev \
             openjdk-17-jdk unzip ant autoconf automake libtool \
-            git zip zlib1g-dev pkg-config libncurses5
+            git zip zlib1g-dev pkg-config libncurses5 \
+            libc6:i386 libstdc++6:i386 zlib1g:i386
 
       - name: Install Python Dependencies
         run: |
@@ -35,16 +37,16 @@ jobs:
           if [ ! -f buildozer.spec ]; then
             buildozer init
           fi
-          # حقن الإعدادات الحاسمة وتثبيت إصدار NDK مستقر (25b) وتراخيص SDK
-          echo "" >> buildozer.spec
-          echo "title = Sultan Ali Systems" >> buildozer.spec
-          echo "package.name = sultanalisystems" >> buildozer.spec
-          echo "package.domain = com.algamley.systems" >> buildozer.spec
-          echo "requirements = python3,kivy" >> buildozer.spec
-          echo "android.api = 33" >> buildozer.spec
-          echo "android.min_api = 21" >> buildozer.spec
-          echo "android.ndk = 25b" >> buildozer.spec
-          echo "android.accept_sdk_license = True" >> buildozer.spec
+          # ضبط إعدادات المشروع بشكل كامل لضمان التثبيت السليم للأدوات
+          sed -i 's/# title = My Application/title = Sultan Ali Systems/' buildozer.spec
+          sed -i 's/# package.name = myapp/package.name = sultanalisystems/' buildozer.spec
+          sed -i 's/# package.domain = org.example/package.domain = com.algamley.systems/' buildozer.spec
+          sed -i 's/# requirements = python3,kivy/requirements = python3,kivy/' buildozer.spec
+          sed -i 's/# android.api = 33/android.api = 33/' buildozer.spec
+          sed -i 's/# android.min_api = 21/android.min_api = 21/' buildozer.spec
+          sed -i 's/# android.sdk = 33/android.sdk = 33/' buildozer.spec
+          sed -i 's/# android.ndk = 25b/android.ndk = 25b/' buildozer.spec
+          sed -i 's/# android.accept_sdk_license = False/android.accept_sdk_license = True/' buildozer.spec
 
       - name: Build APK via Buildozer
         run: |
