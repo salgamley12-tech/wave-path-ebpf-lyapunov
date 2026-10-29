@@ -37,16 +37,17 @@ jobs:
           if [ ! -f buildozer.spec ]; then
             buildozer init
           fi
-          # ضبط إعدادات المشروع بشكل كامل لضمان التثبيت السليم للأدوات
+          # تعديل وتثبيت الإعدادات الأساسية لضمان التوافق التام
           sed -i 's/# title = My Application/title = Sultan Ali Systems/' buildozer.spec
           sed -i 's/# package.name = myapp/package.name = sultanalisystems/' buildozer.spec
           sed -i 's/# package.domain = org.example/package.domain = com.algamley.systems/' buildozer.spec
           sed -i 's/# requirements = python3,kivy/requirements = python3,kivy/' buildozer.spec
           sed -i 's/# android.api = 33/android.api = 33/' buildozer.spec
           sed -i 's/# android.min_api = 21/android.min_api = 21/' buildozer.spec
-          sed -i 's/# android.sdk = 33/android.sdk = 33/' buildozer.spec
           sed -i 's/# android.ndk = 25b/android.ndk = 25b/' buildozer.spec
           sed -i 's/# android.accept_sdk_license = False/android.accept_sdk_license = True/' buildozer.spec
+          # حصر البناء على معمارية arm64-v8a لتجنب تضارب التجميع الثنائي
+          sed -i 's/# android.archs = arm64-v8a, armeabi-v7a/android.archs = arm64-v8a/' buildozer.spec
 
       - name: Build APK via Buildozer
         run: |
