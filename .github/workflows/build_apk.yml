@@ -34,6 +34,7 @@ jobs:
                   --arch arm64-v8a \
                   --android-api 34
         env:
+          CYTHON_ALT_INCLUDE_DIR: ""
           PIP_NO_BUILD_ISOLATION: "False"
 
       - name: Upload APK Artifact
