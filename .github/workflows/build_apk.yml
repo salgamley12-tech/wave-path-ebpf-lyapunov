@@ -10,46 +10,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Configure Locale and Encoding
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y locales
-          sudo locale-gen en_US.UTF-8
-          sudo update-locale LANG=en_US.UTF-8
-
-      - name: Install System Dependencies
-        run: |
-          sudo dpkg --add-architecture i386
-          sudo apt-get update
-          sudo apt-get install -y \
-            build-essential ccache git wget curl \
-            libltdl-dev libffi-dev libssl-dev \
-            openjdk-17-jdk unzip ant autoconf automake libtool \
-            git zip zlib1g-dev pkg-config libncurses5 \
-            libc6:i386 libstdc++6:i386 zlib1g:i386
-
-      - name: Pre-install Android NDK
-        run: |
-          mkdir -p ~/.buildozer/android/platform
-          cd ~/.buildozer/android/platform
-          wget -q https://dl.google.com/android/repository/android-ndk-r25b-linux.zip
-          unzip -q android-ndk-r25b-linux.zip
-          mv android-ndk-r25b android-ndk-r25b-linux-x86_64
-          rm android-ndk-r25b-linux.zip
-
-      - name: Install Python Dependencies & P4A
-        run: |
-          python -m pip install --upgrade pip
-          pip install cython==0.29.36 setuptools==68.2.2 wheel
-          pip install python-for-android
-          pip install buildozer
-
-      - name: Generate Complete buildozer.spec
+      - name: Generate buildozer.spec
         run: |
           cat << 'EOF' > buildozer.spec
           [app]
@@ -72,12 +33,10 @@ jobs:
           warn_on_root = 1
           EOF
 
-      - name: Build APK via Buildozer
-        env:
-          LC_ALL: "en_US.UTF-8"
-          LANG: "en_US.UTF-8"
-        run: |
-          buildozer -v android debug
+      - name: Build APK via Official Buildozer Docker
+        uses: docker://kivy/buildozer
+        with:
+          args: android debug
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
