@@ -42,11 +42,11 @@ jobs:
           mv android-ndk-r25b android-ndk-r25b-linux-x86_64
           rm android-ndk-r25b-linux.zip
 
-      - name: Install Python Dependencies & Stable P4A
+      - name: Install Python Dependencies & P4A
         run: |
           python -m pip install --upgrade pip
           pip install cython==0.29.36 setuptools==68.2.2 wheel
-          pip install python-for-android==2024.09.0
+          pip install python-for-android
           pip install buildozer
 
       - name: Generate Complete buildozer.spec
