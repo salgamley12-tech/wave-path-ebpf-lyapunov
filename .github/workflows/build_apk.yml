@@ -1,39 +1,39 @@
-name: Sovereign APK Build Pipeline
+use std::fs;
+use std::thread;
+use std::time::Duration;
 
-on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
+fn main() {
+    println!("[INFO] Initializing AQI Sovereign Kernel (ARM64 Neon Acceleration)...");
+    
+    let mut tick_count = 0;
+    let max_ticks = 20;
 
-jobs:
-  build-android-apk:
-    runs-on: ubuntu-latest
+    // حلقة المحاكاة والتحكم بزمن الاستقرار
+    while tick_count < max_ticks {
+        tick_count += 1;
+        
+        // محاكاة حسابات استقرار لييابونوف (Lyapunov Stability)
+        let v_x = 3.0 * (-0.15 * tick_count as f64).exp() + (tick_count as f64 * 0.05).cos().abs() * 0.2;
+        let v_dot = -0.45 * v_x - 0.1;
+        let status = if v_dot < 0.0 { "STABLE" } else { "UNSTABLE" };
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+        // طباعة المخرجات في طرفية Termux
+        println!("[Tick {:02}] State: [{:.3}, {:.3}, {:.3}] | V(x): {:.4} | V_dot: {:.4} | Status: {}", 
+                 tick_count, v_x, v_dot * 0.5, v_x * 0.3, v_x, v_dot, status);
 
-      - name: Setup Rust Toolchain & Android Targets
-        uses: dtolnay/rust-toolchain@stable
-        with:
-          targets: aarch64-linux-android, armv7-linux-androideabi
+        // **[الإضافة الجديدة]: تصدير البيانات الحية لتتزامن مع لوحة التحكم**
+        let telemetry_json = format!(
+            "{{\"tick\": {}, \"v_x\": {:.4}, \"v_dot\": {:.4}, \"status\": \"{}\"}}",
+            tick_count, v_x, v_dot, status
+        );
+        
+        // مسار التخزين المحلي في Termux
+        let path = "/data/data/com.termux/files/home/wave-path-ebpf-lyapunov/telemetry.json";
+        let _ = fs::write(path, telemetry_json);
 
-      - name: Compile Sovereign Core for Android ARM64
-        run: |
-          echo "[+] Building Sovereign Core for Android..."
-          cargo build --release --target aarch64-linux-android
+        // فاصل زمني نبضي متزامن (150 ميلي ثانية)
+        thread::sleep(Duration::from_millis(150));
+    }
 
-      - name: Package into Android APK Structure
-        run: |
-          mkdir -p apk_output/assets
-          cp target/aarch64-linux-android/release/wave-path-ebpf-lyapunov apk_output/assets/sovereign_core
-          
-          # إنشاء حزمة هيكلية جاهزة للتثبيت
-          echo "Sultan Ali Systems - Sovereign Mobile Core v6.0" > apk_output/manifest.txt
-
-      - name: Upload APK Release Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Sultan-Ali-Sovereign-App-v6.0
-          path: apk_output/
-          
+    println!("\n[INFO] Simulation target reached successfully.");
+}
