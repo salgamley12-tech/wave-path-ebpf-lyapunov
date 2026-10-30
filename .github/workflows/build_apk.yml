@@ -13,10 +13,21 @@ jobs:
       - name: Checkout Sovereign Repository
         uses: actions/checkout@v4
 
+      - name: Install Cross-Compilation Tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-aarch64-linux-gnu libc6-dev-arm64-cross
+
       - name: Set up Rust Toolchain
         uses: dtolnay/rust-toolchain@stable
         with:
           targets: aarch64-linux-android
+
+      - name: Configure Cargo Linker for Android
+        run: |
+          mkdir -p .cargo
+          echo '[target.aarch64-linux-android]' >> .cargo/config.toml
+          echo 'linker = "aarch64-linux-gnu-gcc"' >> .cargo/config.toml
 
       - name: Build Wave Path eBPF Kernel Binary
         run: |
