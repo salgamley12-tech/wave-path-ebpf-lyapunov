@@ -1,4 +1,4 @@
-name: Autonomous Sovereign Pipeline
+name: Sovereign APK Build Pipeline
 
 on:
   push:
@@ -6,32 +6,34 @@ on:
   workflow_dispatch:
 
 jobs:
-  sovereign-autonomous-build:
+  build-android-apk:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Rust Stable Toolchain
+      - name: Setup Rust Toolchain & Android Targets
         uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-linux-android, armv7-linux-androideabi
 
-      - name: Compile Sovereign eBPF Core
+      - name: Compile Sovereign Core for Android ARM64
         run: |
-          echo "[+] Initializing Sovereign Core Compilation..."
-          cargo build --release
-          
-          echo "[+] Structuring Direct Release Directory..."
-          mkdir -p sovereign_release
-          cp target/release/wave-path-ebpf-lyapunov sovereign_release/sovereign_core
-          
-          # توثيق بيانات الإصدار السيادي
-          date -u > sovereign_release/timestamp.txt
-          echo "Enterprise: Algamley Digital Engineering & Sultan Ali Systems" >> sovereign_release/manifest.txt
+          echo "[+] Building Sovereign Core for Android..."
+          cargo build --release --target aarch64-linux-android
 
-      - name: Publish Verified Sovereign Artifacts
+      - name: Package into Android APK Structure
+        run: |
+          mkdir -p apk_output/assets
+          cp target/aarch64-linux-android/release/wave-path-ebpf-lyapunov apk_output/assets/sovereign_core
+          
+          # إنشاء حزمة هيكلية جاهزة للتثبيت
+          echo "Sultan Ali Systems - Sovereign Mobile Core v6.0" > apk_output/manifest.txt
+
+      - name: Upload APK Release Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Sultan-Ali-Sovereign-Core-v6.0
-          path: sovereign_release/
+          name: Sultan-Ali-Sovereign-App-v6.0
+          path: apk_output/
           
