@@ -13,29 +13,31 @@ jobs:
       - name: Checkout Sovereign Repository
         uses: actions/checkout@v4
 
-      - name: Install Cross-Compilation Tools
+      - name: Install System Dependencies & GCC Cross-Compiler
         run: |
           sudo apt-get update
-          sudo apt-get install -y gcc-aarch64-linux-gnu libc6-dev-arm64-cross
+          sudo apt-get install -y build-essential gcc-aarch64-linux-gnu libc6-dev-arm64-cross
 
       - name: Set up Rust Toolchain
         uses: dtolnay/rust-toolchain@stable
         with:
           targets: aarch64-linux-android
 
-      - name: Configure Cargo Linker for Android
+      - name: Configure Environment & Linker for Android ARM64
         run: |
+          echo "CARGO_TARGET_AARCH64_LINUX_ANDROID_LINKER=aarch64-linux-gnu-gcc" >> $GITHUB_ENV
+          echo "CC_aarch64_linux_android=aarch64-linux-gnu-gcc" >> $GITHUB_ENV
           mkdir -p .cargo
-          echo '[target.aarch64-linux-android]' >> .cargo/config.toml
+          echo '[target.aarch64-linux-android]' > .cargo/config.toml
           echo 'linker = "aarch64-linux-gnu-gcc"' >> .cargo/config.toml
 
       - name: Build Wave Path eBPF Kernel Binary
         run: |
-          echo "[+] Compiling Sovereign Core for ARM64..."
+          echo "[+] Compiling Sovereign Core for ARM64 with explicit Linker..."
           cargo build --target aarch64-linux-android --release
           mkdir -p build/output
           cp target/aarch64-linux-android/release/wave-path-ebpf-lyapunov build/output/sovereign_core
-          echo "[+] Binary built successfully."
+          echo "[+] Binary compiled successfully."
 
       - name: Package Sovereign Artifacts
         run: |
