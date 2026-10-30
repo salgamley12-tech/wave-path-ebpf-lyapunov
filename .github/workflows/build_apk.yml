@@ -1,46 +1,40 @@
 name: Build Sultan Ali Systems APK
 
 on:
+  push:
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-22.04
+  build-sovereign-core:
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Code
+      - name: Checkout Sovereign Repository
         uses: actions/checkout@v4
 
-      - name: Generate buildozer.spec
-        run: |
-          cat << 'EOF' > buildozer.spec
-          [app]
-          title = Sultan Ali Systems
-          package.name = sultanalisystems
-          package.domain = com.algamley.systems
-          source.dir = .
-          source.include_exts = py,png,jpg,kv,atlas
-          version = 1.0.0
-          requirements = python3,kivy
-          orientation = portrait
-          fullscreen = 0
-          android.api = 33
-          android.min_api = 21
-          android.ndk = 25b
-          android.accept_sdk_license = True
-          android.archs = arm64-v8a
-          [buildozer]
-          log_level = 2
-          warn_on_root = 0
-          EOF
-
-      - name: Build APK via Official Buildozer Docker
-        uses: docker://kivy/buildozer
+      - name: Set up Rust Toolchain
+        uses: dtolnay/rust-toolchain@stable
         with:
-          args: android debug
+          targets: aarch64-linux-android
 
-      - name: Upload APK Artifact
+      - name: Build Wave Path eBPF Kernel Binary
+        run: |
+          echo "[+] Compiling Sovereign Core for ARM64..."
+          cargo build --target aarch64-linux-android --release
+          mkdir -p build/output
+          cp target/aarch64-linux-android/release/wave-path-ebpf-lyapunov build/output/sovereign_core
+          echo "[+] Binary built successfully."
+
+      - name: Package Sovereign Artifacts
+        run: |
+          mkdir -p build/apk
+          cp build/output/sovereign_core build/apk/sovereign_core
+          zip -j build/apk/Sultan-Ali-Systems-v6.0.zip build/apk/sovereign_core
+
+      - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: SultanAliSystems-APK
-          path: bin/*.apk
+          name: Sultan-Ali-Systems-Package
+          path: build/apk/
           
