@@ -21,17 +21,17 @@ jobs:
           echo "[+] Initializing Sovereign Core Compilation..."
           cargo build --release
           
-          echo "[+] Structuring Artifacts Directory..."
-          mkdir -p sovereign_build/output
-          cp target/release/wave-path-ebpf-lyapunov sovereign_build/output/sovereign_core
+          echo "[+] Structuring Direct Release Directory..."
+          mkdir -p sovereign_release
+          cp target/release/wave-path-ebpf-lyapunov sovereign_release/sovereign_core
           
-          # توثيق بصمة الإصدار السيادي
-          date -u > sovereign_build/output/timestamp.txt
-          echo "Enterprise: Algamley Digital Engineering & Sultan Ali Systems" >> sovereign_build/output/manifest.txt
+          # توثيق بيانات الإصدار السيادي
+          date -u > sovereign_release/timestamp.txt
+          echo "Enterprise: Algamley Digital Engineering & Sultan Ali Systems" >> sovereign_release/manifest.txt
 
       - name: Publish Verified Sovereign Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: Sultan-Ali-Sovereign-Core-v6.0
-          path: sovereign_build/output/
+          path: sovereign_release/
           
