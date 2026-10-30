@@ -6,39 +6,25 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-sovereign-core:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Sovereign Repository
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Set up Rust Toolchain & Target
+      - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
-        with:
-          targets: aarch64-linux-android
 
-      - name: Verify Rust Target and Build Core
+      - name: Build Binary
         run: |
-          echo "[+] Verifying target installation..."
-          rustup target add aarch64-linux-android
-          
-          echo "[+] Compiling Sovereign Core for ARM64..."
-          cargo build --target aarch64-linux-android --release
-          
+          cargo build --release
           mkdir -p build/output
-          cp target/aarch64-linux-android/release/wave-path-ebpf-lyapunov build/output/sovereign_core
-          echo "[+] Binary built successfully."
+          cp target/release/wave-path-ebpf-lyapunov build/output/sovereign_core
 
-      - name: Package Sovereign Artifacts
-        run: |
-          mkdir -p build/apk
-          cp build/output/sovereign_core build/apk/sovereign_core
-          zip -j build/apk/Sultan-Ali-Systems-v6.0.zip build/apk/sovereign_core
-
-      - name: Upload Artifacts
+      - name: Archive Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: Sultan-Ali-Systems-Package
-          path: build/apk/
+          path: build/output/
           
