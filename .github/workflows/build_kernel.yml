@@ -1,26 +1,24 @@
-name: Build AQI Sovereign Kernel
+name: Build Sovereign Kernel
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "main" ]
 
 jobs:
-  build-kernel:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Install Rust Toolchain
-      uses: dtolnay/rust-toolchain@nightly
-      with:
-        targets: aarch64-unknown-none
-        components: rust-src
+      - name: Set up Rust Toolchain & Dependencies
+        run: |
+          rustup default stable
+          rustup target add aarch64-unknown-none
+          rustup component add rust-src
 
-    - name: Build Sovereign Kernel via Cargo
-      run: |
-        cargo +nightly build --target aarch64-unknown-none --release -Z build-std=core
+      - name: Build Sovereign Kernel via Cargo
+        run: cargo build --target aarch64-unknown-none
         
