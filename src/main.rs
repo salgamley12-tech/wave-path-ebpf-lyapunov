@@ -16,7 +16,6 @@ pub const XDP_PASS: u32 = 2;
 pub const XDP_TX: u32 = 3;
 pub const XDP_REDIRECT: u32 = 4;
 
-/// هيكل سياق حزمة الشبكة (XDP Context)
 #[repr(C)]
 pub struct XdpMd {
     pub data: u32,
@@ -26,7 +25,6 @@ pub struct XdpMd {
     pub rx_queue_index: u32,
 }
 
-/// هيكل ترويسة الإيثرنت (Ethernet Header)
 #[repr(C, packed)]
 pub struct EthHeader {
     pub dst_mac: [u8; 6],
@@ -44,7 +42,6 @@ pub extern "C" fn aqi_xdp_filter(ctx: *const XdpMd) -> u32 {
         let data = (*ctx).data as usize;
         let data_end = (*ctx).data_end as usize;
 
-        // فحص حتمي لترويسة الإيثرنت لمنع قراءة الذاكرة العشوائية
         let eth_hdr_size = core::mem::size_of::<EthHeader>();
         if data + eth_hdr_size > data_end {
             return XDP_PASS;
@@ -53,7 +50,6 @@ pub extern "C" fn aqi_xdp_filter(ctx: *const XdpMd) -> u32 {
         let eth = &*(data as *const EthHeader);
         let ethertype = u16::from_be(eth.ethertype);
 
-        // تصفية حزم IPv4 (EtherType 0x0800)
         if ethertype == 0x0800 {
             return XDP_PASS;
         }
@@ -61,4 +57,3 @@ pub extern "C" fn aqi_xdp_filter(ctx: *const XdpMd) -> u32 {
 
     XDP_PASS
 }
-
