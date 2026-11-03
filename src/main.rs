@@ -10,8 +10,6 @@ fn panic(_info: &PanicInfo) -> ! {
 
 pub static LICENSE: [u8; 4] = [b'G', b'P', b'L', 0];
 
-
-
 pub const XDP_ABORTED: u32 = 0;
 pub const XDP_DROP: u32 = 1;
 pub const XDP_PASS: u32 = 2;
@@ -28,7 +26,7 @@ pub struct XdpMd {
     pub rx_queue_index: u32,
 }
 
-/// هيكل ترويسة الإيثرنت (Ethernet Header - 14 Bytes)
+/// هيكل ترويسة الإيثرنت (Ethernet Header)
 #[repr(C, packed)]
 pub struct EthHeader {
     pub dst_mac: [u8; 6],
@@ -37,7 +35,7 @@ pub struct EthHeader {
 }
 
 #[no_mangle]
-pub extern "C" fn aqi_xdp_filter(ctx: *mut XdpMd) -> u32 {
+pub extern "C" fn aqi_xdp_filter(ctx: *const XdpMd) -> u32 {
     if ctx.is_null() {
         return XDP_PASS;
     }
@@ -46,27 +44,20 @@ pub extern "C" fn aqi_xdp_filter(ctx: *mut XdpMd) -> u32 {
         let data = (*ctx).data as usize;
         let data_end = (*ctx).data_end as usize;
 
-        // التحقق من حدود ترويسة الإيثرنت لمنع قراءة الذاكرة العشوائية
+        // فحص حتمي لترويسة الإيثرنت لمنع قراءة الذاكرة العشوائية
         let eth_hdr_size = core::mem::size_of::<EthHeader>();
         if data + eth_hdr_size > data_end {
-            return XDP_PASS; // تمرير الحزم الأصغر من حجم الترويسة بأمان
+            return XDP_PASS;
         }
 
-        // تحويل مؤشر البيانات إلى هيكل ترويسة الإيثرنت
         let eth = &*(data as *const EthHeader);
-        
-        // قراءة نوع البروتوكول وتحويله من ترتيب بايتات الشبكة (Network Byte Order)
         let ethertype = u16::from_be(eth.ethertype);
 
-        // مثال على التصفية السيادية:
-        // EtherType 0x0800 يمثل بروتوكول IPv4
-        // يمكننا تطبيق قواعد الفلترة هنا (مثلاً السماح أو فحص الحزم بدقة)
+        // تصفية حزم IPv4 (EtherType 0x0800)
         if ethertype == 0x0800 {
-            // الحزمة من نوع IPv4 - مسموح لها بالعبور للمستوى التالي
             return XDP_PASS;
         }
     }
 
-    // افتراضياً نسمح بباقي الحزم أو نطبق سياسة حظر مخصصة
     XDP_PASS
 }
