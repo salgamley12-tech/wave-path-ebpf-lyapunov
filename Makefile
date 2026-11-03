@@ -1,13 +1,7 @@
-CC = clang
-CFLAGS = -O3 -Wall
+TARGET = aarch64-unknown-none
 
-all: sovereign_sim
-
-sovereign_sim: main.c
-$(CC)$(CFLAGS) main.c -o sovereign_sim
-@echo "[+] Build complete. Running Sovereign Simulation..."
-./sovereign_sim
+all:
+	cargo build --target $(TARGET) --release
 
 clean:
-rm -f sovereign_sim
-@echo "[+] Cleaned build artifacts."
+	cargo clean
