@@ -20,8 +20,10 @@ jobs:
           targets: aarch64-unknown-none
           components: rust-src
 
+      - name: Ensure rust-src is active
+        run: rustup component add rust-src --toolchain nightly
+
       - name: Build Sovereign Kernel via Cargo
         run: |
-          cargo +nightly build --target aarch64-unknown-none
-
+          cargo +nightly build --target aarch64-unknown-none --release -Z build-std=core
           
