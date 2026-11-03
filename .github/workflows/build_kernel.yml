@@ -15,11 +15,11 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Install Rust Toolchain
-      uses: dtolnay/rust-toolchain@stable
+      uses: dtolnay/rust-toolchain@nightly
       with:
         targets: aarch64-unknown-none
 
-    - name: Build Sovereign Kernel via Makefile
+    - name: Build Sovereign Kernel via Cargo
       run: |
-        make all
+        cargo +nightly build --target aarch64-unknown-none --release -Z build-std=core
         
