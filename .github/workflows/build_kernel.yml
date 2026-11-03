@@ -26,4 +26,10 @@ jobs:
       - name: Build Sovereign Kernel via Cargo
         run: |
           cargo +nightly build --target aarch64-unknown-none --release -Z build-std=core
+
+      - name: Upload Kernel Binary Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: aqi-sovereign-kernel
+          path: target/aarch64-unknown-none/release/aqi-sovereign-kernel
           
