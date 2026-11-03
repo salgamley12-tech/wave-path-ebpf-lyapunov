@@ -11,7 +11,8 @@ fn panic(_info: &core::panic::PanicInfo) -> ! {
 }
 
 #[link_section = "license"]
-pub static LICENSE: [u8; 4] *b"GPL\0";
+pub static LICENSE: [u8; 4] = [b'G', b'P', b'L', 0];
+
 
 /// نقطة الدخول الرئيسية لفلترة حزم الشبكة عبر مرشح XDP
 #[no_mangle]
