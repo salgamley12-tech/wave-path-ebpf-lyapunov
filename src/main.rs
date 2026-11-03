@@ -11,7 +11,8 @@ fn panic(_info: &PanicInfo) -> ! {
 
 pub static LICENSE: [u8; 4] = [b'G', b'P', b'L', 0];
 
-// ثوابت استجابة بروتوكول XDP السيادي
+pub static LICENSE: [u8; 4] = [b'G', b'P', b'L', 0];
+
 pub const XDP_ABORTED: u32 = 0;
 pub const XDP_DROP: u32 = 1;
 pub const XDP_PASS: u32 = 2;
