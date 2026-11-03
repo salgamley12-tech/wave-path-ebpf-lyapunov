@@ -11,7 +11,7 @@ fn panic(_info: &PanicInfo) -> ! {
 
 pub static LICENSE: [u8; 4] = [b'G', b'P', b'L', 0];
 
-pub static LICENSE: [u8; 4] = [b'G', b'P', b'L', 0];
+
 
 pub const XDP_ABORTED: u32 = 0;
 pub const XDP_DROP: u32 = 1;
