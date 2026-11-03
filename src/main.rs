@@ -1,7 +1,6 @@
 #![no_std]
 #![no_main]
 
-use core::ffi::c_void;
 use core::panic::PanicInfo;
 
 #[panic_handler]
