@@ -40,6 +40,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             Card(
               elevation: 2,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Row(
@@ -100,7 +101,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  // دالة مساعدة لضمان استجابة النقر بالكامل عبر InkWell
+  // بطاقة تفاعلية محسنة هندسياً لاستجابة اللمس بنسبة 100%
   Widget _buildMenuCard(
     BuildContext context, {
     required String title,
@@ -112,8 +113,8 @@ class HomeScreen extends StatelessWidget {
     return Card(
       elevation: 3,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      clipBehavior: Clip.antiAlias,
       child: InkWell(
-        borderRadius: BorderRadius.circular(12),
         onTap: () {
           Navigator.push(
             context,
