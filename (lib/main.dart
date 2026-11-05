@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:import 'package:flutter/material.dart';
 
 void main() {
   runApp(const SultanPharmaApp());
@@ -21,7 +21,7 @@ class SultanPharmaApp extends StatelessWidget {
   }
 }
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
@@ -47,32 +47,72 @@ class HomeScreen extends StatefulWidget {
             const SizedBox(height: 10),
             Expanded(
               child: ListView(
-                children: const [
+                children: [
                   Card(
                     child: ListTile(
-                      leading: Icon(Icons.medical_services, color: Colors.green),
-                      title: Text('إدارة المخزون والأدوية'),
-                      trailing: Icon(Icons.arrow_forward_ios),
+                      leading: const Icon(Icons.medical_services, color: Colors.green),
+                      title: const Text('إدارة المخزون والأدوية'),
+                      trailing: const Icon(Icons.arrow_forward_ios),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const DetailScreen(title: 'إدارة المخزون والأدوية')),
+                        );
+                      },
                     ),
                   ),
                   Card(
                     child: ListTile(
-                      leading: Icon(Icons.account_balance_wallet, color: Colors.orange),
-                      title: Text('سجل الحسابات والمبيعات'),
-                      trailing: Icon(Icons.arrow_forward_ios),
+                      leading: const Icon(Icons.account_balance_wallet, color: Colors.orange),
+                      title: const Text('سجل الحسابات والمبيعات'),
+                      trailing: const Icon(Icons.arrow_forward_ios),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const DetailScreen(title: 'سجل الحسابات والمبيعات')),
+                        );
+                      },
                     ),
                   ),
                   Card(
                     child: ListTile(
-                      leading: Icon(Icons.history, color: Colors.purple),
-                      title: Text('تتبع الأنشطة الميدانية'),
-                      trailing: Icon(Icons.arrow_forward_ios),
+                      leading: const Icon(Icons.history, color: Colors.purple),
+                      title: const Text('تتبع الأنشطة الميدانية'),
+                      trailing: const Icon(Icons.arrow_forward_ios),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const DetailScreen(title: 'تتبع الأنشطة الميدانية')),
+                        );
+                      },
                     ),
                   ),
                 ],
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class DetailScreen extends StatelessWidget {
+  final String title;
+  const DetailScreen({super.key, required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+        backgroundColor: Colors.blueAccent,
+        foregroundColor: Colors.white,
+      ),
+      body: Center(
+        child: Text(
+          'شاشة $title تعمل بنجاح',
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
       ),
     );
