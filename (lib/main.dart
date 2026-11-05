@@ -38,69 +38,107 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            const Card(
+            Card(
               elevation: 2,
-              child: ListTile(
-                leading: Icon(Icons.person, color: Colors.blue, size: 30),
-                title: Text('المعرف الرئيسي', style: TextStyle(fontWeight: FontWeight.bold)),
-                subtitle: Text('sal'),
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Row(
+                  children: const [
+                    Icon(Icons.person, color: Colors.blue, size: 30),
+                    SizedBox(width: 16),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('المعرف الرئيسي', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                        SizedBox(height: 4),
+                        Text('sal', style: TextStyle(color: Colors.grey, fontSize: 14)),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
             const SizedBox(height: 15),
             Expanded(
               child: ListView(
                 children: [
-                  Card(
-                    elevation: 3,
-                    child: ListTile(
-                      leading: const Icon(Icons.medical_services, color: Colors.green, size: 28),
-                      title: const Text('إدارة المخزون والأدوية', style: TextStyle(fontWeight: FontWeight.bold)),
-                      subtitle: const Text('إضافة واستعراض الأدوية المتاحة'),
-                      trailing: const Icon(Icons.arrow_forward_ios),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const InventoryScreen()),
-                        );
-                      },
-                    ),
+                  // القسم الأول: إدارة المخزون
+                  _buildMenuCard(
+                    context,
+                    title: 'إدارة المخزون والأدوية',
+                    subtitle: 'إضافة واستعراض الأدوية المتاحة',
+                    icon: Icons.medical_services,
+                    iconColor: Colors.green,
+                    destination: const InventoryScreen(),
                   ),
-                  const SizedBox(height: 8),
-                  Card(
-                    elevation: 3,
-                    child: ListTile(
-                      leading: const Icon(Icons.account_balance_wallet, color: Colors.orange, size: 28),
-                      title: const Text('سجل الحسابات والمبيعات', style: TextStyle(fontWeight: FontWeight.bold)),
-                      subtitle: const Text('تسجيل المبيعات والعمليات المالية'),
-                      trailing: const Icon(Icons.arrow_forward_ios),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const SalesScreen()),
-                        );
-                      },
-                    ),
+                  const SizedBox(height: 10),
+                  // القسم الثاني: الحسابات والمبيعات
+                  _buildMenuCard(
+                    context,
+                    title: 'سجل الحسابات والمبيعات',
+                    subtitle: 'تسجيل المبيعات والعمليات المالية',
+                    icon: Icons.account_balance_wallet,
+                    iconColor: Colors.orange,
+                    destination: const SalesScreen(),
                   ),
-                  const SizedBox(height: 8),
-                  Card(
-                    elevation: 3,
-                    child: ListTile(
-                      leading: const Icon(Icons.history, color: Colors.purple, size: 28),
-                      title: const Text('تتبع الأنشطة الميدانية', style: TextStyle(fontWeight: FontWeight.bold)),
-                      subtitle: const Text('تسجيل ومتابعة زيارات الزيارات الميدانية'),
-                      trailing: const Icon(Icons.arrow_forward_ios),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const FieldActivitiesScreen()),
-                        );
-                      },
-                    ),
+                  const SizedBox(height: 10),
+                  // القسم الثالث: الأنشطة الميدانية
+                  _buildMenuCard(
+                    context,
+                    title: 'تتبع الأنشطة الميدانية',
+                    subtitle: 'تسجيل ومتابعة زيارات الزيارات الميدانية',
+                    icon: Icons.history,
+                    iconColor: Colors.purple,
+                    destination: const FieldActivitiesScreen(),
                   ),
                 ],
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  // دالة مساعدة لضمان استجابة النقر بالكامل عبر InkWell
+  Widget _buildMenuCard(
+    BuildContext context, {
+    required String title,
+    required String subtitle,
+    required IconData icon,
+    required Color iconColor,
+    required Widget destination,
+  }) {
+    return Card(
+      elevation: 3,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(12),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => destination),
+          );
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            children: [
+              Icon(icon, color: iconColor, size: 32),
+              const SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                    const SizedBox(height: 4),
+                    Text(subtitle, style: const TextStyle(color: Colors.grey, fontSize: 13)),
+                  ],
+                ),
+              ),
+              const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
+            ],
+          ),
         ),
       ),
     );
