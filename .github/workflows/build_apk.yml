@@ -1,41 +1,120 @@
-name: Build Sultan Pharma APK
+import 'package:flutter/material.dart';
 
-on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
+void main() {
+  runApp(const SultanPharmaApp());
+}
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+class SultanPharmaApp extends StatelessWidget {
+  const SultanPharmaApp({super.key});
 
-    steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'العين الساهرة سلطان',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: Colors.blueAccent,
+        useMaterial3: true,
+      ),
+      home: const HomeScreen(),
+    );
+  }
+}
 
-    - name: Set up Java JDK
-      uses: actions/setup-java@v3
-      with:
-        distribution: 'temurin'
-        java-version: '17'
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
-    - name: Set up Flutter Environment
-      uses: subosito/flutter-action@v2
-      with:
-        channel: 'stable'
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('شركة الأدوية - العين الساهرة'),
+        centerTitle: true,
+        backgroundColor: Colors.blueAccent,
+        foregroundColor: Colors.white,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            const Card(
+              child: ListTile(
+                leading: Icon(Icons.person, color: Colors.blue),
+                title: Text('المعرف الرئيسي'),
+                subtitle: Text('sal'),
+              ),
+            ),
+            const SizedBox(height: 10),
+            Expanded(
+              child: ListView(
+                children: [
+                  Card(
+                    child: ListTile(
+                      leading: const Icon(Icons.medical_services, color: Colors.green),
+                      title: const Text('إدارة المخزون والأدوية'),
+                      trailing: const Icon(Icons.arrow_forward_ios),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const DetailScreen(title: 'إدارة المخزون والأدوية')),
+                        );
+                      },
+                    ),
+                  ),
+                  Card(
+                    child: ListTile(
+                      leading: const Icon(Icons.account_balance_wallet, color: Colors.orange),
+                      title: const Text('سجل الحسابات والمبيعات'),
+                      trailing: const Icon(Icons.arrow_forward_ios),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const DetailScreen(title: 'سجل الحسابات والمبيعات')),
+                        );
+                      },
+                    ),
+                  ),
+                  Card(
+                    child: ListTile(
+                      leading: const Icon(Icons.history, color: Colors.purple),
+                      title: const Text('تتبع الأنشطة الميدانية'),
+                      trailing: const Icon(Icons.arrow_forward_ios),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const DetailScreen(title: 'تتبع الأنشطة الميدانية')),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
-    - name: Generate Flutter Platform Files
-      run: flutter create . --platforms=android
+class DetailScreen extends StatelessWidget {
+  final String title;
+  const DetailScreen({super.key, required this.title});
 
-    - name: Install Dependencies
-      run: flutter pub get
-
-    - name: Build Release APK
-      run: flutter build apk --release
-
-    - name: Upload APK Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: Sultan-Pharma-App
-        path: build/app/outputs/flutter-apk/app-release.apk
-        
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+        backgroundColor: Colors.blueAccent,
+        foregroundColor: Colors.white,
+      ),
+      body: Center(
+        child: Text(
+          'شاشة $title تعمل بنجاح',
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
+  }
+}
