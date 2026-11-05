@@ -21,7 +21,7 @@ class SultanPharmaApp extends StatelessWidget {
   }
 }
 
-// الشاشة الرئيسية المحدثة كلياً بشريط تحكم سفلي وأزرار واضحة
+// الشاشة الرئيسية مع شريط التنقل السفلي
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
 
@@ -190,7 +190,7 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-// 1. شاشة إدارة المخزون والأدوية
+// 1. شاشة إدارة المخزون والأدوية (مع دعم البحث والتصفية)
 class InventoryScreen extends StatefulWidget {
   const InventoryScreen({super.key});
 
@@ -204,8 +204,26 @@ class _InventoryScreenState extends State<InventoryScreen> {
     {'name': 'أموكسيسيلين 250ملجم', 'quantity': '80 علبة', 'price': '1200 ر.ي'},
   ];
 
+  List> _filteredMedicines = [];
+  final _searchController = TextEditingController();
   final _nameController = TextEditingController();
   final _qtyController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _filteredMedicines = _medicines;
+    _searchController.addListener(_filterMedicines);
+  }
+
+  void _filterMedicines() {
+    final query = _searchController.text.toLowerCase();
+    setState(() {
+      _filteredMedicines = _medicines.where((med) {
+        return med['name']!.toLowerCase().contains(query);
+      }).toList();
+    });
+  }
 
   void _addMedicine() {
     if (_nameController.text.isNotEmpty && _qtyController.text.isNotEmpty) {
@@ -215,6 +233,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
           'quantity': '${_qtyController.text} علبة',
           'price': 'محدد حديثاً',
         });
+        _filteredMedicines = _medicines;
       });
       _nameController.clear();
       _qtyController.clear();
@@ -230,19 +249,36 @@ class _InventoryScreenState extends State<InventoryScreen> {
         backgroundColor: Colors.green,
         foregroundColor: Colors.white,
       ),
-      body: ListView.builder(
-        itemCount: _medicines.length,
-        itemBuilder: (context, index) {
-          return Card(
-            margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-            child: ListTile(
-              leading: const Icon(Icons.medication, color: Colors.green),
-              title: Text(_medicines[index]['name']!),
-              subtitle: Text('الكمية: ${_medicines[index]['quantity']}'),
-              trailing: Text(_medicines[index]['price']!),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: TextField(
+              controller: _searchController,
+              decoration: InputDecoration(
+                labelText: 'بحث عن دواء...',
+                prefixIcon: const Icon(Icons.search),
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+              ),
             ),
-          );
-        },
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: _filteredMedicines.length,
+              itemBuilder: (context, index) {
+                return Card(
+                  margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  child: ListTile(
+                    leading: const Icon(Icons.medication, color: Colors.green),
+                    title: Text(_filteredMedicines[index]['name']!),
+                    subtitle: Text('الكمية: ${_filteredMedicines[index]['quantity']}'),
+                    trailing: Text(_filteredMedicines[index]['price']!),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.green,
