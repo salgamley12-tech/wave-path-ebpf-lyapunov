@@ -13,15 +13,59 @@ class SultanPharmaApp extends StatelessWidget {
       title: 'العين الساهرة سلطان',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.blueAccent,
+        primarySwatch: Colors.blue,
         useMaterial3: true,
         fontFamily: 'Roboto',
       ),
-      home: const HomeScreen(),
+      home: const MainNavigationScreen(),
     );
   }
 }
 
+// الشاشة الرئيسية مع شريط أزرار تحكم سفلي وتصميم تفاعلي مضمون
+class MainNavigationScreen extends StatefulWidget {
+  const MainNavigationScreen({super.key});
+
+  @override
+  State<MainNavigationScreen> createState() => _MainNavigationScreenState();
+}
+
+class _MainNavigationScreenState extends State<MainNavigationScreen> {
+  int _currentIndex = 0;
+
+  final List<Widget> _screens = [
+    const HomeScreen(),
+    const InventoryScreen(),
+    const SalesScreen(),
+    const FieldActivitiesScreen(),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: _screens[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Colors.blueAccent,
+        unselectedItemColor: Colors.grey,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'الرئيسية'),
+          BottomNavigationBarItem(icon: Icon(Icons.medical_services), label: 'المخزون'),
+          BottomNavigationBarItem(icon: Icon(Icons.account_balance_wallet), label: 'المبيعات'),
+          BottomNavigationBarItem(icon: Icon(Icons.history), label: 'الأنشطة'),
+        ],
+      ),
+    );
+  }
+}
+
+// 1. شاشة لوحة التحكم الرئيسية مع أزرار تحكم بارزة
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -37,59 +81,61 @@ class HomeScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Card(
-              elevation: 2,
+              elevation: 3,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
+              child: const Padding(
+                padding: EdgeInsets.all(16.0),
                 child: Row(
-                  children: const [
-                    Icon(Icons.person, color: Colors.blue, size: 30),
+                  children: [
+                    Icon(Icons.verified_user, color: Colors.blue, size: 36),
                     SizedBox(width: 16),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('المعرف الرئيسي', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                        Text('المعرف الرئيسي للنظام', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                         SizedBox(height: 4),
-                        Text('sal', style: TextStyle(color: Colors.grey, fontSize: 14)),
+                        Text('sal (نشط وموثق)', style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold)),
                       ],
                     ),
                   ],
                 ),
               ),
             ),
+            const SizedBox(height: 20),
+            const Text(
+              'أزرار التحكم السريع بالأقسام:',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.blueGrey),
+            ),
             const SizedBox(height: 15),
             Expanded(
-              child: ListView(
+              child: GridView.count(
+                crossAxisCount: 1,
+                childAspectRatio: 3.5,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 12,
                 children: [
-                  // القسم الأول: إدارة المخزون
-                  _buildMenuCard(
+                  _buildActionButton(
                     context,
                     title: 'إدارة المخزون والأدوية',
-                    subtitle: 'إضافة واستعراض الأدوية المتاحة',
                     icon: Icons.medical_services,
-                    iconColor: Colors.green,
+                    color: Colors.green,
                     destination: const InventoryScreen(),
                   ),
-                  const SizedBox(height: 10),
-                  // القسم الثاني: الحسابات والمبيعات
-                  _buildMenuCard(
+                  _buildActionButton(
                     context,
                     title: 'سجل الحسابات والمبيعات',
-                    subtitle: 'تسجيل المبيعات والعمليات المالية',
                     icon: Icons.account_balance_wallet,
-                    iconColor: Colors.orange,
+                    color: Colors.orange,
                     destination: const SalesScreen(),
                   ),
-                  const SizedBox(height: 10),
-                  // القسم الثالث: الأنشطة الميدانية
-                  _buildMenuCard(
+                  _buildActionButton(
                     context,
                     title: 'تتبع الأنشطة الميدانية',
-                    subtitle: 'تسجيل ومتابعة زيارات الزيارات الميدانية',
                     icon: Icons.history,
-                    iconColor: Colors.purple,
+                    color: Colors.purple,
                     destination: const FieldActivitiesScreen(),
                   ),
                 ],
@@ -101,52 +147,46 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  // بطاقة تفاعلية محسنة هندسياً لاستجابة اللمس بنسبة 100%
-  Widget _buildMenuCard(
+  Widget _buildActionButton(
     BuildContext context, {
     required String title,
-    required String subtitle,
     required IconData icon,
-    required Color iconColor,
+    required Color color,
     required Widget destination,
   }) {
-    return Card(
-      elevation: 3,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => destination),
-          );
-        },
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Row(
-            children: [
-              Icon(icon, color: iconColor, size: 32),
-              const SizedBox(width: 16),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                    const SizedBox(height: 4),
-                    Text(subtitle, style: const TextStyle(color: Colors.grey, fontSize: 13)),
-                  ],
-                ),
-              ),
-              const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
-            ],
-          ),
-        ),
+    return ElevatedButton.styleFrom(
+      // استخدام زر بارز ومضمون الاستجابة
+    ).let((_) => ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: color,
+        foregroundColor: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        elevation: 4,
       ),
-    );
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => destination),
+        );
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(icon, size: 28),
+          const SizedBox(width: 12),
+          Text(title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        ],
+      ),
+    ));
   }
 }
 
-// 1. شاشة إدارة المخزون والأدوية
+// امتداد مساعدة صغير لضمان بناء الزر بسلاسة
+extension on ButtonStyle {
+  Widget let(Widget Function(ButtonStyle) callback) => callback(this);
+}
+
+// 2. شاشة إدارة المخزون والأدوية
 class InventoryScreen extends StatefulWidget {
   const InventoryScreen({super.key});
 
@@ -169,7 +209,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
         _medicines.add({
           'name': _nameController.text,
           'quantity': '${_qtyController.text} علبة',
-          'price': 'غير محدد',
+          'price': 'محدد حديثاً',
         });
       });
       _nameController.clear();
@@ -210,11 +250,15 @@ class _InventoryScreenState extends State<InventoryScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Text('إضافة دواء جديد', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                  const Text('إضافة دواء جديد للمخزون', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                   TextField(controller: _nameController, decoration: const InputDecoration(labelText: 'اسم الدواء')),
                   TextField(controller: _qtyController, decoration: const InputDecoration(labelText: 'الكمية'), keyboardType: TextInputType.number),
                   const SizedBox(height: 15),
-                  ElevatedButton(onPressed: _addMedicine, child: const Text('حفظ في المخزون'))
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(backgroundColor: Colors.green, foregroundColor: Colors.white),
+                    onPressed: _addMedicine,
+                    child: const Text('حفظ وإضافة'),
+                  ),
                 ],
               ),
             ),
@@ -226,7 +270,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
   }
 }
 
-// 2. شاشة سجل الحسابات والمبيعات
+// 3. شاشة سجل الحسابات والمبيعات
 class SalesScreen extends StatelessWidget {
   const SalesScreen({super.key});
 
@@ -242,9 +286,10 @@ class SalesScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            const Card(
+            Card(
               color: Colors.orangeAccent,
-              child: Padding(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              child: const Padding(
                 padding: EdgeInsets.all(16.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -259,18 +304,21 @@ class SalesScreen extends StatelessWidget {
             Expanded(
               child: ListView(
                 children: const [
-                  ListTile(
-                    leading: Icon(Icons.receipt_long, color: Colors.orange),
-                    title: Text('فاتورة #102 - صيدلية الأمل'),
-                    subtitle: Text('المبلغ: 15,000 ر.ي'),
-                    trailing: Text('مكتمـل', style: TextStyle(color: Colors.green)),
+                  Card(
+                    child: ListTile(
+                      leading: Icon(Icons.receipt_long, color: Colors.orange),
+                      title: Text('فاتورة #102 - صيدلية الأمل'),
+                      subtitle: Text('المبلغ: 15,000 ر.ي'),
+                      trailing: Text('مكتمل', style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold)),
+                    ),
                   ),
-                  Divider(),
-                  ListTile(
-                    leading: Icon(Icons.receipt_long, color: Colors.orange),
-                    title: Text('فاتورة #103 - صيدلية الشفاء'),
-                    subtitle: Text('المبلغ: 30,000 ر.ي'),
-                    trailing: Text('مكتمـل', style: TextStyle(color: Colors.green)),
+                  Card(
+                    child: ListTile(
+                      leading: Icon(Icons.receipt_long, color: Colors.orange),
+                      title: Text('فاتورة #103 - صيدلية الشفاء'),
+                      subtitle: Text('المبلغ: 30,000 ر.ي'),
+                      trailing: Text('مكتمل', style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold)),
+                    ),
                   ),
                 ],
               ),
@@ -282,7 +330,7 @@ class SalesScreen extends StatelessWidget {
   }
 }
 
-// 3. شاشة تتبع الأنشطة الميدانية
+// 4. شاشة تتبع الأنشطة الميدانية
 class FieldActivitiesScreen extends StatelessWidget {
   const FieldActivitiesScreen({super.key});
 
