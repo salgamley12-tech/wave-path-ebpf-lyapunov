@@ -15,14 +15,13 @@ class SultanPharmaApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         useMaterial3: true,
-        fontFamily: 'Roboto',
       ),
       home: const MainNavigationScreen(),
     );
   }
 }
 
-// الشاشة الرئيسية مع شريط أزرار تحكم سفلي وتصميم تفاعلي مضمون
+// الشاشة الرئيسية المحدثة كلياً بشريط تحكم سفلي وأزرار واضحة
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
 
@@ -55,17 +54,16 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           });
         },
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'الرئيسية'),
-          BottomNavigationBarItem(icon: Icon(Icons.medical_services), label: 'المخزون'),
-          BottomNavigationBarItem(icon: Icon(Icons.account_balance_wallet), label: 'المبيعات'),
-          BottomNavigationBarItem(icon: Icon(Icons.history), label: 'الأنشطة'),
+          BottomNavigationBarItem(icon: Icon(Icons.home, size: 28), label: 'الرئيسية'),
+          BottomNavigationBarItem(icon: Icon(Icons.medical_services, size: 28), label: 'المخزون'),
+          BottomNavigationBarItem(icon: Icon(Icons.account_balance_wallet, size: 28), label: 'المبيعات'),
+          BottomNavigationBarItem(icon: Icon(Icons.history, size: 28), label: 'الأنشطة'),
         ],
       ),
     );
   }
 }
 
-// 1. شاشة لوحة التحكم الرئيسية مع أزرار تحكم بارزة
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -111,29 +109,30 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 15),
             Expanded(
-              child: GridView.count(
-                crossAxisCount: 1,
-                childAspectRatio: 3.5,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 12,
+              child: ListView(
                 children: [
-                  _buildActionButton(
+                  _buildNavButton(
                     context,
                     title: 'إدارة المخزون والأدوية',
+                    subtitle: 'إضافة ومتابعة أصناف الأدوية',
                     icon: Icons.medical_services,
                     color: Colors.green,
                     destination: const InventoryScreen(),
                   ),
-                  _buildActionButton(
+                  const SizedBox(height: 12),
+                  _buildNavButton(
                     context,
                     title: 'سجل الحسابات والمبيعات',
+                    subtitle: 'تسجيل الفواتير والعمليات المالية',
                     icon: Icons.account_balance_wallet,
                     color: Colors.orange,
                     destination: const SalesScreen(),
                   ),
-                  _buildActionButton(
+                  const SizedBox(height: 12),
+                  _buildNavButton(
                     context,
                     title: 'تتبع الأنشطة الميدانية',
+                    subtitle: 'متابعة زيارات الصيدليات والمناديب',
                     icon: Icons.history,
                     color: Colors.purple,
                     destination: const FieldActivitiesScreen(),
@@ -147,46 +146,51 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildActionButton(
+  Widget _buildNavButton(
     BuildContext context, {
     required String title,
+    required String subtitle,
     required IconData icon,
     required Color color,
     required Widget destination,
   }) {
-    return ElevatedButton.styleFrom(
-      // استخدام زر بارز ومضمون الاستجابة
-    ).let((_) => ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: color,
-        foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        elevation: 4,
+    return Card(
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => destination),
+          );
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            children: [
+              Icon(icon, color: color, size: 32),
+              const SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                    const SizedBox(height: 4),
+                    Text(subtitle, style: const TextStyle(color: Colors.grey, fontSize: 13)),
+                  ],
+                ),
+              ),
+              const Icon(Icons.arrow_forward_ios, size: 18, color: Colors.grey),
+            ],
+          ),
+        ),
       ),
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => destination),
-        );
-      },
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(icon, size: 28),
-          const SizedBox(width: 12),
-          Text(title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-        ],
-      ),
-    ));
+    );
   }
 }
 
-// امتداد مساعدة صغير لضمان بناء الزر بسلاسة
-extension on ButtonStyle {
-  Widget let(Widget Function(ButtonStyle) callback) => callback(this);
-}
-
-// 2. شاشة إدارة المخزون والأدوية
+// 1. شاشة إدارة المخزون والأدوية
 class InventoryScreen extends StatefulWidget {
   const InventoryScreen({super.key});
 
@@ -270,7 +274,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
   }
 }
 
-// 3. شاشة سجل الحسابات والمبيعات
+// 2. شاشة سجل الحسابات والمبيعات
 class SalesScreen extends StatelessWidget {
   const SalesScreen({super.key});
 
@@ -330,7 +334,7 @@ class SalesScreen extends StatelessWidget {
   }
 }
 
-// 4. شاشة تتبع الأنشطة الميدانية
+// 3. شاشة تتبع الأنشطة الميدانية
 class FieldActivitiesScreen extends StatelessWidget {
   const FieldActivitiesScreen({super.key});
 
